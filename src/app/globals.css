@@ -1,3 +1,7 @@
+/* Tailwind Directives (Uncomment if Tailwind is working) */
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities; */
 @import "tailwindcss";
 
 :root {
@@ -5,22 +9,174 @@
   --foreground: #171717;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@media (prefers-color-scheme: light) {
+  :root {
+    --background: #ffffff;
+    --foreground: #000000;
+    --dehn-red: #e3000b;
+    --dehn-realwhite: #ffffff;
+    --dehn-offwhite: #f9f8f6;
+    --dehn-textgrey: #5b5b5d;
+    --dehn-eerieblack: #1f1f1e;
+    --dehn-gainsboro: #dee3e3;
+    --dehn-eagle: #015b6b;
+    --dehn-anthrazit: #30414f;
+    --dehn-selectyellow: #febc39;
+    --dehn-heatwave: #fb7d0e;
+    --dehn-successgreen: #006f2c;
+    --dehn-dangerred: #a4130e;
+    --dehn-infoblue: #02c3e5;
+  }
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #000000;
+    --foreground: #ffffff;
+    --dehn-red: #e3000b;
+    --dehn-realwhite: #ffffff;
+    --dehn-offwhite: #f9f8f6;
+    --dehn-textgrey: #5b5b5d;
+    --dehn-eerieblack: #1f1f1e;
+    --dehn-gainsboro: #dee3e3;
+    --dehn-eagle: #015b6b;
+    --dehn-anthrazit: #30414f;
+    --dehn-selectyellow: #febc39;
+    --dehn-heatwave: #fb7d0e;
+    --dehn-successgreen: #006f2c;
+    --dehn-dangerred: #a4130e;
+    --dehn-infoblue: #02c3e5;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+* {
+  font-family: "Noto Sans", sans-serif !important;
 }
+
+
+/*  Background Colors */
+.bg-dehn-red {
+  background-color: var(--dehn-red);
+}
+.bg-dehn-realwhite {
+  background-color: var(--dehn-realwhite);
+}
+.bg-dehn-offwhite {
+  background-color: var(--dehn-offwhite);
+}
+.bg-dehn-textgrey {
+  background-color: var(--dehn-textgrey);
+}
+.bg-dehn-eerieblack {
+  background-color: var(--dehn-eerieblack);
+}
+.bg-dehn-gainsboro {
+  background-color: var(--dehn-gainsboro);
+}
+.bg-dehn-eagle {
+  background-color: var(--dehn-eagle);
+}
+.bg-dehn-anthrazit {
+  background-color: var(--dehn-anthrazit);
+}
+.bg-dehn-selectyellow {
+  background-color: var(--dehn-selectyellow);
+}
+.bg-dehn-heatwave {
+  background-color: var(--dehn-heatwave);
+}
+.bg-dehn-successgreen {
+  background-color: var(--dehn-successgreen);
+}
+.bg-dehn-dangerred {
+  background-color: var(--dehn-dangerred);
+}
+.bg-dehn-infoblue {
+  background-color: var(--dehn-infoblue);
+}
+
+/* ✅ Text Colors */
+.text-dehn-red {
+  color: var(--dehn-red);
+}
+.text-dehn-realwhite {
+  color: var(--dehn-realwhite);
+}
+.text-dehn-offwhite {
+  color: var(--dehn-offwhite);
+}
+.text-dehn-textgrey {
+  color: var(--dehn-textgrey);
+}
+.text-dehn-eerieblack {
+  color: var(--dehn-eerieblack);
+}
+.text-dehn-gainsboro {
+  color: var(--dehn-gainsboro);
+}
+.text-dehn-eagle {
+  color: var(--dehn-eagle);
+}
+.text-dehn-anthrazit {
+  color: var(--dehn-anthrazit);
+}
+.text-dehn-selectyellow {
+  color: var(--dehn-selectyellow);
+}
+.text-dehn-heatwave {
+  color: var(--dehn-heatwave);
+}
+.text-dehn-successgreen {
+  color: var(--dehn-successgreen);
+}
+.text-dehn-dangerred {
+  color: var(--dehn-dangerred);
+}
+.text-dehn-infoblue {
+  color: var(--dehn-infoblue);
+}
+
+/* ✅ Border Colors */
+.border-dehn-red {
+  border-color: var(--dehn-red);
+}
+.border-dehn-realwhite {
+  border-color: var(--dehn-realwhite);
+}
+.border-dehn-offwhite {
+  border-color: var(--dehn-offwhite);
+}
+.border-dehn-textgrey {
+  border-color: var(--dehn-textgrey);
+}
+.border-dehn-eerieblack {
+  border-color: var(--dehn-eerieblack);
+}
+.border-dehn-gainsboro {
+  border-color: var(--dehn-gainsboro);
+}
+.border-dehn-eagle {
+  border-color: var(--dehn-eagle);
+}
+.border-dehn-anthrazit {
+  border-color: var(--dehn-anthrazit);
+}
+.border-dehn-selectyellow {
+  border-color: var(--dehn-selectyellow);
+}
+.border-dehn-heatwave {
+  border-color: var(--dehn-heatwave);
+}
+.border-dehn-successgreen {
+  border-color: var(--dehn-successgreen);
+}
+.border-dehn-dangerred {
+  border-color: var(--dehn-dangerred);
+}
+.border-dehn-infoblue {
+  border-color: var(--dehn-infoblue);
+}
+.fullscreen-mode {
+  background-color: white !important;
+}
+
