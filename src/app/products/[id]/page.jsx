@@ -6,6 +6,7 @@ import Image from "next/image";
 import ModelViewer from "@/components/ModelViewer";
 import ProductModelViewer from "@/components/ProductModelViewer";
 import {QRCodeCanvas} from "qrcode.react"; 
+import DelveDeeperButton from "@/components/DelveDeeperButton";
 // import { useRouter } from "next/router";
 
 export default function ProductDetails() {
@@ -109,11 +110,8 @@ export default function ProductDetails() {
       <div className="fixed bottom-10 right-20 flex flex-row items-center space-x-2">
       <span className="text-sm text-dehn-red font-bold">Delve Deeper</span>
 
-  <button onClick={() => router.push(`/products/features/${id}`)}
-    className="p-3 border border-dehn-red rounded-full text-dehn-red hover:bg-dehn-red hover:text-white transition  "
-  >
-   <img src="/assets/delve-deeper.png" alt="" className="w-5 h-5" />
-  </button>
+      <DelveDeeperButton id={id} />
+
 </div>
 
     </div>

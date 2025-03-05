@@ -1,24 +1,48 @@
 "use client";
-import { useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 import useProductStore from "@/components/store/useProductStore";
-import ProductModelViewer from "@/components/ProductModelViewer";
+import EPMSModelViewer from "@/components/EPMSModelViewer";
+// import CPMSModelViewer from "@/components/CPMSModelViewer";
+import PESSModelViewer from "@/components/PESSModelViewer";
+import DefaultModelViewer from "@/components/ProductModelViewer"; 
 import Image from "next/image";
 
 export default function ProductFeatures() {
-  const { id } = useParams();
+  const { id: paramId } = useParams(); 
+  const id = Number(paramId); 
   const { getProductById } = useProductStore();
   const [product, setProduct] = useState(null);
   const router = useRouter();
 
   useEffect(() => {
-    if (id) {
-      const fetchedProduct = getProductById(parseInt(id));
+    if (!id) return;
+
+    const fetchedProduct = getProductById(id);
+    if (fetchedProduct) {
       setProduct(fetchedProduct);
+    } else {
+      router.replace("/404"); 
     }
   }, [id]);
 
   if (!product) return <p className="text-center">Loading...</p>;
+
+  console.log("Loading Model for Product ID:", id, "Model Path:", product.modelSrc); 
+
+  
+  const renderModelViewer = () => {
+    switch (id) {
+      case 1:
+        return <EPMSModelViewer modelPath={product.modelSrc} />;
+      case 2:
+        return <CPMSModelViewer modelPath={product.modelSrc} />;
+      case 3:
+        return <PESSModelViewer modelPath={product.modelSrc} />;
+      default:
+        return <DefaultModelViewer modelPath={product.modelSrc} />; 
+    }
+  };
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center">
@@ -33,12 +57,10 @@ export default function ProductFeatures() {
         </p>
       </div>
 
-      {/* Model Section */}
       <div className="relative w-full flex items-center justify-center mt-6">
-        <ProductModelViewer modelPath={product.modelSrc} />
+        {renderModelViewer()} {/* ✅ Loads the correct Model Viewer based on ID */}
       </div>
 
-      {/* ⬅️ Back to Product */}
       <div className="fixed bottom-10 left-20 flex flex-row items-center space-x-2">
         <button
           onClick={() => router.push(`/products/${id}`)}
