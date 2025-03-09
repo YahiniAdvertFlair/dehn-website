@@ -179,4 +179,16 @@
 .fullscreen-mode {
   background-color: white !important;
 }
+.Hotspot{
+  border:1px solid #e3000b;
+  color:#e3000b;
+  background-color: white;
+  padding:0px 4px;
+  border-radius: 100%;
+  font-size: 0.6em;
+  cursor:pointer;
+}
+.model-container {
+  transform: translateX(-80px); 
+}
 

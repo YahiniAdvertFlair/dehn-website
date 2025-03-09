@@ -15,13 +15,15 @@ export default function Home() {
   }, [currentIndex, products]);
 
   return (
+   
+  
     <div className="bg-transparent min-h-screen flex flex-col items-center justify-center px-10">
       <header className="w-full flex items-center justify-start p-4 border-b border-gray-500/10">
         <Image src="/assets/dehn-logo.png" alt="DEHN Logo" width={140} height={40} />
       </header>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-5xl mt-2">
-        {products.map((product) => (
+        {products.filter((product)=>product.id !== 7).map((product) => (
                <div
           key={product.id}
           className="bg-dehn-offwhite p-4 rounded-xl shadow-lg cursor-pointer hover:shadow-xl transition"

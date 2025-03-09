@@ -1,11 +1,20 @@
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 
-export default function DelveDeeperButton({ id }) {
+export default function DelveDeeperButton({ id, onScrollUp }) {
   const router = useRouter();
 
+  useEffect(() => {
+    router.prefetch(`/products/features/${id}`);
+  }, [id, router]);
+
   const handleNavigation = () => {
-    console.log("Navigating to:", `/products/features/${id}`)
+    console.log("Navigating to:", `/products/features/${id}`);
+    
+    if (typeof onScrollUp === "function") {
+      onScrollUp();
+    }
+
     router.push(`/products/features/${id}`);
   };
 

@@ -16,13 +16,16 @@ export default function ProductModelViewer({ modelPath, size = "small" }) {
         ar
         auto-rotate
         camera-controls
+        interaction-prompt="auto"
+        disable-pan="false"
         shadow-intensity="1"
         scale="4 4 4"
-        camera-orbit="0deg 90deg 3m"  
-        field-of-view="80deg"         
-        min-camera-orbit="auto auto 3m" 
-        max-camera-orbit="auto auto 5m" 
-        min-field-of-view="30deg"       
+        camera-orbit="0deg 90deg 2m"  
+        field-of-view="45deg"
+        min-camera-orbit="auto auto 1.5m"  
+        max-camera-orbit="auto auto 5m"  
+        min-field-of-view="30deg"
+        max-field-of-view="90deg" 
         style={{
           width: size === "large" ? "600px" : "1000px", 
           height: size === "large" ? "600px" : "420px",
