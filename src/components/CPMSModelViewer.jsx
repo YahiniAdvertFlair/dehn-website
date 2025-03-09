@@ -55,7 +55,7 @@ export default function CPMSModelViewer({ modelPath, setActiveFeature, activeFea
       {hotspots.map((hotspot, index) => (
         <button
           key={hotspot.id}
-          className={`absolute flex items-center justify-center ${
+          className={`absolute flex items-center justify-center cursor-pointer ${
             activeMedia
               ? "w-10 h-10 bg-gray-500 text-white font-bold rounded-full shadow-lg right-5"
               : `${hotspot.size} bg-transparent rounded-full flex items-center justify-center text-white transition duration-300`
@@ -78,7 +78,11 @@ export default function CPMSModelViewer({ modelPath, setActiveFeature, activeFea
           }}
         >
           {activeMedia ? (
-            <span className="text-xs">{hotspot.id}</span> 
+              <img
+              src={hotspot.video ? hotspot.preview : hotspot.image} 
+              alt={hotspot.name}
+              className="w-8 h-8 rounded-full border-2 border-gray-500"
+            />
           ) : (
             <img
               src={hotspot.video ? hotspot.preview : hotspot.image} 

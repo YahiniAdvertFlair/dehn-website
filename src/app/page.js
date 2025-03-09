@@ -15,7 +15,7 @@ export default function Home() {
   }, [currentIndex, products]);
 
   return (
-   
+  
   
     <div className="bg-transparent min-h-screen flex flex-col items-center justify-center px-10">
       <header className="w-full flex items-center justify-start p-4 border-b border-gray-500/10">

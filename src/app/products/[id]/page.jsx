@@ -49,12 +49,7 @@ export default function ProductDetails() {
       <div className="text-center max-w-3xl mx-auto mt-6">
       <div className="text-center max-w-3xl mx-auto mt-6 flex items-center justify-center">
         <h1 className="text-4xl md:text-5xl font-bold text-dehn-red">{product.title}</h1>
-        <button 
-          onClick={() => router.push("/")} 
-          className="p-2 rounded-full bg-gray-200 hover:bg-gray-300 transition"
-        >
-          <img src="/assets/back.png" alt="Back" className="w-6 h-6" />
-        </button>
+    
         </div>
         <p className="text-gray-600 mt-2 text-md">{product.description}</p>
        
@@ -126,6 +121,16 @@ export default function ProductDetails() {
       <div className="absolute left-10 top-1/2 -rotate-90 text-gray-500 text-sm flex gap-2">
         <img src="/assets/360.png" alt="360°" className="w-5 h-5 bg-gray-500 rounded-3xl" />
         360° DEGREE ROTATION ENABLED
+      </div>
+
+      <div className="fixed bottom-10 left-20 flex flex-row items-center space-x-2 cursor-pointer">
+        <button
+          onClick={() => router.push(`/`)}
+          className="p-3 border border-dehn-red rounded-full text-dehn-red hover:bg-gray-200 hover:text-white cursor-pointer"
+        >
+          <img src="/assets/arrow.png" alt="Back" className="w-5 h-5" />
+        </button>
+        <span className="text-sm text-dehn-red font-bold">Back to Home</span>
       </div>
 
       <div className="fixed bottom-10 right-20 flex flex-row items-center space-x-2">

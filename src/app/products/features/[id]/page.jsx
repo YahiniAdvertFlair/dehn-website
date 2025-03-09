@@ -54,7 +54,7 @@ export default function ProductFeatures() {
         <Image src="/assets/dehn-logo.png" alt="DEHN Logo" width={140} height={40} />
       </header>
 
-      <div className="text-center max-w-3xl mx-auto mt-4">
+      <div className="text-center max-w-3xl mx-auto mt-26">
         <h1 className="text-4xl md:text-5xl font-bold text-dehn-red">Interactive Features</h1>
         <p className="text-gray-600 mt-2 text-md">
           Unlock real-time monitoring, intelligent diagnostics, and seamless system integration for enhanced surge protection and performance.
@@ -66,8 +66,8 @@ export default function ProductFeatures() {
   className="relative flex items-center justify-center p-6 border border-gray-400 rounded-lg bg-cover bg-center bg-no-repeat "
   style={{
     minWidth: "900px", 
-    minHeight: "450px", // Keeps the height fixed
-    height: "450px", // Explicitly set a fixed height
+    minHeight: "450px", 
+    height: "450px", 
     width: "auto",
     transition: "all 0.3s ease-in-out"
   }}
@@ -120,7 +120,7 @@ export default function ProductFeatures() {
       style={{ display: !isVideoActive ? "block" : "none" }} 
     />
   )}
-      {!isVideoActive && id === 1  && product?.hotspots?.map((hotspot) => (
+      {/* {!isVideoActive && id === 1  && product?.hotspots?.map((hotspot) => (
           <button
             key={hotspot.id}
             className="absolute flex items-center justify-center w-10 h-10 bg-gray-500 text-white font-bold rounded-full shadow-lg transition-transform duration-300"
@@ -143,8 +143,8 @@ export default function ProductFeatures() {
           >
             <img src="/assets/EPMS.png" />
           </button>
-        ))}
-          {!isVideoActive && id === 3  && product?.hotspots?.map((hotspot) => (
+        ))} */}
+          {/* {!isVideoActive && id === 3  && product?.hotspots?.map((hotspot) => (
           <button
             key={hotspot.id}
             className="absolute flex items-center justify-center w-10 h-10 bg-gray-500 text-white font-bold rounded-full shadow-lg transition-transform duration-300"
@@ -158,37 +158,39 @@ export default function ProductFeatures() {
           >
             <img src="/assets/EPMS.png" />
           </button>
-        ))}
-         {/* {!isVideoActive && id === 2  && product?.hotspots?.map((hotspot) => (
-          <button
-            key={hotspot.id}
-            className="absolute flex items-center justify-center w-10 h-10 bg-gray-500 text-white font-bold rounded-full shadow-lg transition-transform duration-300"
-            style={{ top: `${hotspot.id * 12}%`, right: "10%" }}
-            onClick={() => {
-              setActiveFeature(hotspot);
-              
-         
-            }}
-          >
-    <img src={hotspot.image} alt={hotspot.name} className="w-8 h-8 rounded-full" />          </button>
         ))} */}
+   
 </div>
 
 
-      {activeFeature &&  (
+      {activeFeature && (id !== 1 && id !== 3) &&  (
         <div className="absolute flex items-center bg-gray-800 text-white p-1 px-3 rounded-full shadow-lg w-64 max-w-md right-25 top-60 border-l-6 border-dehn-red">
           <div className="w-8 h-8 rounded-full overflow-hidden bg-white flex items-center justify-center mr-3">
             <span className="text-dehn-red font-bold text-sm">{activeFeature.id}</span>
           </div>
           <div className="flex flex-col flex-grow">
             <h2 className="text-xs font-bold mt-2">{activeFeature.name}</h2>
-            <button className="mt-2 flex items-center space-x-2 py-1 rounded-full text-white font-bold">
+            <button className="mt-2 flex items-center space-x-2 py-1 rounded-full text-white font-bold ">
               <span className="text-[0.5em]">Delve Deeper</span>
               <img src="/assets/delve-deeper.png" alt="Delve Deeper" className="w-5 h-5 brightness-10 contrast-0" />
             </button>
           </div>
         </div>
       )}
+        {activeFeature && (id===1 ) && (
+            <div className="absolute flex items-center bg-gray-800 text-white p-1 px-3 rounded-full shadow-lg w-64 max-w-md right-78 top-90 border-l-6 border-dehn-red">
+              <div className="w-8 h-8 rounded-full overflow-hidden bg-white flex items-center justify-center mr-3">
+                <span className="text-dehn-red font-bold text-sm">{activeFeature.id}</span>
+              </div>
+              <div className="flex flex-col flex-grow">
+                <h2 className="text-xs font-bold mt-2">{activeFeature.name}</h2>
+                <button className="mt-2 flex items-center space-x-2 py-1 rounded-full text-white font-bold">
+                  <span className="text-[0.5em]">Delve Deeper</span>
+                  <img src="/assets/delve-deeper.png" alt="Delve Deeper" className="w-5 h-5 brightness-10 contrast-0" />
+                </button>
+              </div>
+            </div>
+          )}
 
       <div className="fixed bottom-10 left-20 flex flex-row items-center space-x-2 cursor-pointer">
         <button
