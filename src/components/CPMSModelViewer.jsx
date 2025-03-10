@@ -81,13 +81,13 @@ export default function CPMSModelViewer({ modelPath, setActiveFeature, activeFea
               <img
               src={hotspot.video ? hotspot.preview : hotspot.image} 
               alt={hotspot.name}
-              className="w-8 h-8 rounded-full border-2 border-gray-500"
+              className="w-8 h-8 rounded-full border-2 border-dehn-red"
             />
           ) : (
             <img
               src={hotspot.video ? hotspot.preview : hotspot.image} 
               alt={hotspot.name}
-              className="w-8 h-8 rounded-full border-2 border-gray-500"
+              className="w-8 h-8 rounded-full border-2 border-dehn-red"
             />
           )}
         </button>
@@ -97,7 +97,7 @@ export default function CPMSModelViewer({ modelPath, setActiveFeature, activeFea
 
 {activeMedia && (
         <button
-          className="absolute bottom-[-5] text-sm right-5 flex items-center space-x-2 text-dehn-red px-4 py-2 cursor-pointer"
+          className="absolute bottom-[3] text-sm bg-gray-200 rounded-lg right-5 flex items-center space-x-2 text-dehn-red px-2 py-2 cursor-pointer"
           onClick={() => {
             setActiveMedia(null);
             setSelectedFeature(null);
@@ -105,7 +105,7 @@ export default function CPMSModelViewer({ modelPath, setActiveFeature, activeFea
           }}
         >
           <img src="/assets/arrow.png" alt="back-icon" className="w-5 h-5" />
-          <span>Back to model</span>
+          {/* <span>Back to model</span> */}
         </button>
       )}
 

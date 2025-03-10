@@ -3,16 +3,15 @@ import { useParams, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import useProductStore from "@/components/store/useProductStore";
 import EPMSModelViewer from "@/components/EPMSModelViewer";
-import DefaultModelViewer from "@/components/ProductModelViewer"; 
 import Image from "next/image";
 import PESSModelViewer from "@/components/PESSModelViewer";
 import CPMSModelViewer from "@/components/CPMSModelViewer";
 import DEHNvenciModelViewer from "@/components/DEHNvenciModelViewer";
-import Applicationpage from "../../applications/page";
 import ApplicationPage from "../../applications/page";
 import BenefitsPage from "../../benefits/page";
 import AdditionalPage from "../../additional-info/page";
 import RecommendedProducts from "../../recommended/page";
+import DEHNguardModelViewer from "@/components/DEHNguardModelViewer";
 
 export default function ProductFeatures() {
   const { id: paramId } = useParams(); 
@@ -106,13 +105,19 @@ export default function ProductFeatures() {
       setActiveFeature={setActiveFeature} 
       activeFeature={activeFeature} 
     />
+  ): id === 5 ? (
+    <DEHNguardModelViewer 
+      modelPath={product.modelSrc} 
+      setActiveFeature={setActiveFeature} 
+      activeFeature={activeFeature} 
+    />
   ): id === 4 ? (
     <DEHNvenciModelViewer 
       modelPath={product.modelSrc} 
       setActiveFeature={setActiveFeature} 
       activeFeature={activeFeature} 
-    />
-  ): !forceReload && id===1 &&(
+    /> 
+  ): id===1 &&(
     <EPMSModelViewer 
       modelPath={product.modelSrc} 
       setActiveFeature={setActiveFeature} 
@@ -120,77 +125,14 @@ export default function ProductFeatures() {
       style={{ display: !isVideoActive ? "block" : "none" }} 
     />
   )}
-      {/* {!isVideoActive && id === 1  && product?.hotspots?.map((hotspot) => (
-          <button
-            key={hotspot.id}
-            className="absolute flex items-center justify-center w-10 h-10 bg-gray-500 text-white font-bold rounded-full shadow-lg transition-transform duration-300"
-            style={{ top: `${hotspot.id * 15}%`, right: "10%" }}
-            onClick={() => {
-              setActiveFeature(hotspot);
-              
-              if (hotspot.id === 5) {
-                setIsVideoActive(true); 
-              } else {
-                setIsVideoActive(false); 
-                setForceReload(true); 
-                setTimeout(() => {
-                  setForceReload(false);
-                  setActiveFeatureModel(id, hotspot.url);
-                }, 100);
-              }
-              console.log(`Changed to: ${hotspot.id === 5 ? "Video" : "3D Model"}`);
-            }}
-          >
-            <img src="/assets/EPMS.png" />
-          </button>
-        ))} */}
-          {/* {!isVideoActive && id === 3  && product?.hotspots?.map((hotspot) => (
-          <button
-            key={hotspot.id}
-            className="absolute flex items-center justify-center w-10 h-10 bg-gray-500 text-white font-bold rounded-full shadow-lg transition-transform duration-300"
-            style={{ top: `${hotspot.id * 15}%`, right: "10%" }}
-            onClick={() => {
-              setActiveFeature(hotspot);
-              
-            
-              console.log(`Changed to: ${hotspot.id === 5 ? "Video" : "3D Model"}`);
-            }}
-          >
-            <img src="/assets/EPMS.png" />
-          </button>
-        ))} */}
+    
+        
+       
    
 </div>
 
 
-      {activeFeature && (id !== 1 && id !== 3) &&  (
-        <div className="absolute flex items-center bg-gray-800 text-white p-1 px-3 rounded-full shadow-lg w-64 max-w-md right-25 top-60 border-l-6 border-dehn-red">
-          <div className="w-8 h-8 rounded-full overflow-hidden bg-white flex items-center justify-center mr-3">
-            <span className="text-dehn-red font-bold text-sm">{activeFeature.id}</span>
-          </div>
-          <div className="flex flex-col flex-grow">
-            <h2 className="text-xs font-bold mt-2">{activeFeature.name}</h2>
-            <button className="mt-2 flex items-center space-x-2 py-1 rounded-full text-white font-bold ">
-              <span className="text-[0.5em]">Delve Deeper</span>
-              <img src="/assets/delve-deeper.png" alt="Delve Deeper" className="w-5 h-5 brightness-10 contrast-0" />
-            </button>
-          </div>
-        </div>
-      )}
-        {activeFeature && (id===1 ) && (
-            <div className="absolute flex items-center bg-gray-800 text-white p-1 px-3 rounded-full shadow-lg w-64 max-w-md right-78 top-90 border-l-6 border-dehn-red">
-              <div className="w-8 h-8 rounded-full overflow-hidden bg-white flex items-center justify-center mr-3">
-                <span className="text-dehn-red font-bold text-sm">{activeFeature.id}</span>
-              </div>
-              <div className="flex flex-col flex-grow">
-                <h2 className="text-xs font-bold mt-2">{activeFeature.name}</h2>
-                <button className="mt-2 flex items-center space-x-2 py-1 rounded-full text-white font-bold">
-                  <span className="text-[0.5em]">Delve Deeper</span>
-                  <img src="/assets/delve-deeper.png" alt="Delve Deeper" className="w-5 h-5 brightness-10 contrast-0" />
-                </button>
-              </div>
-            </div>
-          )}
+      
 
       <div className="fixed bottom-10 left-20 flex flex-row items-center space-x-2 cursor-pointer">
         <button

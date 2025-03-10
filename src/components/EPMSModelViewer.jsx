@@ -6,155 +6,139 @@ export default function EPMSModelViewer({ modelPath, setActiveFeature, activeFea
   const { activeFeatureModels, setActiveFeatureModel } = useProductStore();
   const activeModel = activeFeatureModels[1] ?? modelPath;
   const [isVideoActive, setIsVideoActive] = useState(false);
-  const [featurePosition, setFeaturePosition] = useState("right");
-  const [activeMedia, setActiveMedia] = useState(null);
   const [selectedFeature, setSelectedFeature] = useState(null);
-
- 
+  const [showFeatureDetails, setShowFeatureDetails] = useState(false);
 
   useEffect(() => {
     console.log("Active Model Updated:", activeModel);
   }, [activeModel]);
+  useEffect(() => {
+    if (selectedFeature) {
+      setShowFeatureDetails(true);
+    }
+  }, [selectedFeature]);
 
   const hotspots = [
-    { id: 1, name: "Earth Resistance Measurement", url: "/EPMS/EPMS_Earth_Resistance.glb", position: "-0.173m 0.299m 0.010m",size: "w-12 h-12", hotspotPosition: { top: "10%", left: "75%" },image:"/EPMS/EPMS_1.png" },
-    { id: 2, name: "Earth Integrity", url: "/EPMS/EPMS_Wire_connect.glb", position: "0.173m 0.295m 0.013m",size: "w-10 h-10",hotspotPosition: { top: "15%", left: "89%" },image:"/EPMS/EPMS_1.png" },
-    { id: 3, name: "Neutral-Earth Voltage", url: "/EPMS/EPMS_Earth_Neutral.glb", position: "-0.179m 0.220m 0.109m",size: "w-15 h-15",hotspotPosition: { top: "60%", left: "88%" },image:"/EPMS/EPMS_3.png" },
-    { id: 4, name: "Earth Leakage Current", url: "/EPMS/EPMS_Earth_Leak.glb", position: "-0.185m 0.036m 0.013m",size: "w-14 h-14",hotspotPosition: { top: "65%", left: "77%" },image:"/EPMS/EPMS_4.png" },
-    { id: 5, name: "Noise Filtering", url: "/EPMS/noise_filter.mp4", position: "0.186m 0.045m 0.014m",size: "w-9 h-9",hotspotPosition: { top: "85%", left: "75%" },image:"/CPMS/clapperboard.png" }
+    { id: 1, name: "Earth Resistance Measurement", url: "/EPMS/EPMS_Earth_Resistance.glb", position: "-0.173m 0.299m 0.010m", hotspotPosition: { top: "10%", left: "75%" }, image: "/EPMS/EPMS_1.png" },
+    { id: 2, name: "Earth Integrity", url: "/EPMS/EPMS_Wire_connect.glb", position: "0.173m 0.295m 0.013m", hotspotPosition: { top: "15%", left: "89%" }, image: "/EPMS/EPMS_1.png" },
+    { id: 3, name: "Neutral-Earth Voltage", url: "/EPMS/EPMS_Earth_Neutral.glb", position: "-0.179m 0.220m 0.109m", hotspotPosition: { top: "60%", left: "88%" }, image: "/EPMS/EPMS_3.png" },
+    { id: 4, name: "Earth Leakage Current", url: "/EPMS/EPMS_Earth_Leak.glb", position: "-0.185m 0.036m 0.013m", hotspotPosition: { top: "65%", left: "77%" }, image: "/EPMS/EPMS_4.png" },
+    { id: 5, name: "Noise Filtering", url: "/EPMS/noise_filter.mp4", position: "0.186m 0.045m 0.014m", hotspotPosition: { top: "85%", left: "75%" }, image: "/CPMS/clapperboard.png" }
   ];
 
   return (
     <div className="flex items-center justify-center w-full relative">
-    {isVideoActive ? (
-  <div className="relative flex flex-col items-center">
-    <video 
-      width="400" 
-      height="150" 
-      controls 
-      autoPlay
-      className="rounded-lg shadow-lg"
-      onEnded={() => setIsVideoActive(false)}
-    >
+     {isVideoActive && (
+  <div className="absolute flex flex-col items-center bg-dehn-eerieblack bg-opacity-80 p-4 rounded-lg shadow-lg z-40">
+    <video width="300" height="200" controls autoPlay className="rounded-lg shadow-lg relative z-50">
       <source src="/EPMS/noise_filter.mp4" type="video/mp4" />
       Your browser does not support the video tag.
     </video>
-
     <button
-      className="absolute bottom-5 right-0  text-white px-4 py-2 rounded-lg shadow-md transition duration-300 hover:bg-red-700"
-      onClick={() => {
-        setIsVideoActive(false);  
-        setActiveMedia(null);
+      className="mt-2 bg-white text-white px-2 py-2 rounded-lg shadow-md transition duration-300 hover:bg-red-700 relative z-50"
+      onClick={() => {setIsVideoActive(false)
         setSelectedFeature(null);
+        setActiveFeature(null);
       }}
     >
-      <img src="/assets/arrow.png" className="w-5 h-5"/>
+      <img src="/assets/arrow.png" alt="" className="w-5 h-5" />
     </button>
   </div>
-) :(
-        <model-viewer
-          src={activeModel}
-          ar
-          ar-modes="webxr scene-viewer quick-look"
-          camera-controls
-          tone-mapping="neutral"
-          shadow-intensity="1"
-          style={{ width: "800px", height: "420px" }}
-        >
-          {hotspots.map((hotspot,index) => (
-            <button
-            key={`hotspot-${index}`}              
-            className={`Hotspot ${activeFeature?.id === hotspot.id ? "pulse" : ""}`}
-              slot={`hotspot-${hotspot.id}`}
-              data-position={hotspot.position}
-              data-normal="0m 0.7m 0.7m"
-              onClick={() => {
-                setActiveFeature(hotspot);
-                
-                setFeaturePosition("right");
-                setTimeout(() => setFeaturePosition("center"), 100); 
-
-                if (hotspot.id === 5) {
-                  setIsVideoActive(true);
-                } else {
-                  setIsVideoActive(false);
-                  setActiveFeatureModel(1, hotspot.url);
-                }
-
-                console.log(`Changed Model to: ${hotspot.url}, Feature: ${hotspot.name}`);
-              }}
-            >
-              <div className="HotspotAnnotation">{hotspot.id}</div>
-            </button>
-          ))}
-  {hotspots.map((hotspot, index) => (
-  <button
-    key={`hotspot-btn-${index}`}
-    className={`absolute flex items-center justify-center cursor-pointer ${
-      activeFeature?.id === hotspot.id  
-        ? "border-2 border-dehn-red shadow-lg " 
-        : "border-2 border-transparent"
-    } ${hotspot.size} bg-transparent rounded-full flex items-center justify-center text-white transition duration-300`}
-    style={{ top: hotspot.hotspotPosition.top, left: hotspot.hotspotPosition.left }}
-    onClick={() => {
-      setSelectedFeature(hotspot);
-      setActiveFeature(hotspot);
-
-      if (hotspot.id === 5) {
-        setIsVideoActive(true);  
-        setActiveMedia({ type: "video", src: "/EPMS/noise_filter.mp4" });
-      } else {
-        setIsVideoActive(false);
-        setActiveMedia({ type: "image", src: hotspot.image });
-        setActiveFeatureModel(1, hotspot.url);
-      }
-
-      console.log(`Displaying ${hotspot.id === 5 ? "Video" : "Image"}: ${hotspot.url || hotspot.image}`);
-    }}
-  >
-    {hotspot.id === 5 && isVideoActive ? (
-      <span className="text-xs">🎥</span>  
-    ) : (
-      <img
-        src={hotspot.image} 
-        alt={hotspot.name}
-        className="w-8 h-8 rounded-full "
-      />
-    )}
-  </button>
-))}
-
-
-
-
-        </model-viewer>
-      )}
-      
-      {activeFeature && (
-  <div
-    className={`absolute flex items-center bg-gray-800 text-white p-2 px-3 rounded-full shadow-lg w-64 max-w-md border-l-4 border-red-500 transition-all duration-500 ease-in-out z-50 ${
-      featurePosition === "right" ? "right-[-200px] opacity-0" : "right-[15%] opacity-100"
-    }`}
-    style={{
-      top: "70%",
-      transform: "translateY(-50%)"
-    }}
-  >
-    <div className="w-8 h-8 rounded-full overflow-hidden bg-white flex items-center justify-center mr-3">
-      <span className="text-red-500 font-bold text-sm">{activeFeature.id}</span>
-    </div>
-    <div className="flex flex-col flex-grow">
-      <h2 className="text-sm font-bold">{activeFeature.name}</h2>
-      <button className="mt-2 flex items-center space-x-2 py-1 rounded-full text-white font-bold">
-        <span className="text-xs">Delve Deeper</span>
-        <img src="/assets/delve-deeper.png" alt="Delve Deeper" className="w-5 h-5 brightness-10 contrast-0" />
-      </button>
-    </div>
-  </div>
 )}
+  <model-viewer
+        src={activeModel}
+        ar
+        ar-modes="webxr scene-viewer quick-look"
+        camera-controls
+        tone-mapping="neutral"
+        shadow-intensity="1"
+        style={{ width: "800px", height: "420px" }}
+      >
+        {hotspots.map((hotspot) => (
+          <button
+            key={`hotspot-annotation-${hotspot.id}`}
+            className={`Hotspot ${activeFeature?.id === hotspot.id ? "pulse" : ""}`}
+            slot={`hotspot-${hotspot.id}`}
+            data-position={hotspot.position}
+            data-normal="0m 0.7m 0.7m"
+            onClick={() => {
+              console.log("Annotation Clicked:", hotspot.id);
+              setActiveFeature(hotspot);
+              setSelectedFeature(hotspot);
+              setShowFeatureDetails(true);
 
+              setActiveFeatureModel(3, hotspot.url);
+              setShowFeatureDetails(true);
+              if (hotspot.id === 5) {
+                setIsVideoActive(true);
+              } else {
+                setIsVideoActive(false);
+                setActiveFeatureModel(1, hotspot.url);
+              }
+            }}
+          >
+            <div className="HotspotAnnotation">{hotspot.id}</div>
+          </button>
+        ))}
+      </model-viewer>
 
-      <style jsx>{`
+      {hotspots.map((hotspot) => (
+        <button
+          key={`hotspot-btn-${hotspot.id}`}
+          className={`absolute flex items-center justify-center cursor-pointer transition-all duration-500 ${
+            selectedFeature?.id === hotspot.id ? "scale-125 opacity-0" : "opacity-100"
+          }`}
+          style={{
+            top: selectedFeature?.id === hotspot.id ? "40%" : hotspot.hotspotPosition.top,
+            left: selectedFeature?.id === hotspot.id ? "90%" : hotspot.hotspotPosition.left,
+            transform: selectedFeature?.id === hotspot.id ? "translate(-50%, -50%) scale(1.5)" : "scale(1)",
+            zIndex: selectedFeature?.id === hotspot.id ? "50" : "1"
+          }}
+          onClick={() => {
+            console.log("Floating Hotspot Clicked:", hotspot.id);
+            setActiveFeature(hotspot);
+            setSelectedFeature(hotspot);
+            setActiveFeatureModel(3, hotspot.url);
+
+            setShowFeatureDetails(true);
+            if (hotspot.id === 5) {
+              setIsVideoActive(true);
+            } else {
+              setIsVideoActive(false);
+              setActiveFeatureModel(1, hotspot.url);
+            }
+          }}
+        >
+          <img src={hotspot.image} className="w-8 h-8 rounded-full border-2 border-dehn-red" />
+        </button>
+      ))}
+        {selectedFeature && showFeatureDetails && (
+        <div
+          className="absolute flex items-center bg-gray-800 text-white p-1 px-3 rounded-full shadow-lg w-58 border-l-4 border-dehn-red max-w-md transition-all duration-500"
+          style={{
+            top: "40%",
+            left: "85%",
+            transform: "translate(-50%, -50%)",
+            opacity: 1,
+            zIndex: 100
+          }}
+        >
+          <div className="relative flex items-center justify-center bg-white rounded-full w-12 h-12 p-1 border-2 border-dehn-red">
+            <img src={selectedFeature.image} className="w-full h-full object-contain rounded-full" />
+            <span className="absolute top-[-4px] right-[-4px] bg-red-600 text-white text-xs font-bold rounded-full px-1.5 py-0.5">
+              {selectedFeature.id}
+            </span>
+          </div>
+          <div className="flex flex-col flex-grow ml-3">
+            <h2 className="text-xs font-bold mt-2">{selectedFeature.name}</h2>
+            <button className="mt-2 flex items-center space-x-2 py-1 rounded-full text-white font-bold">
+              <span className="text-[0.5em]">Delve Deeper</span>
+              <img src="/assets/delve-deeper.png" alt="Delve Deeper" className="w-5 h-5 brightness-10 contrast-0" />
+            </button>
+          </div>
+        </div>
+      )}
+        <style jsx>{`
         .pulse::before {
           content: "";
           position: absolute;
