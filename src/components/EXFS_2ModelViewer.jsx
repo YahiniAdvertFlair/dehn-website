@@ -2,9 +2,9 @@
 import { useEffect, useState } from "react";
 import useProductStore from "@/components/store/useProductStore";
 
-export default function DEHNvenciModelViewer({ modelPath, setActiveFeature, activeFeature }) {
+export default function EXFS_2ModelViewer({ modelPath, setActiveFeature, activeFeature }) {
   const { activeFeatureModels, setActiveFeatureModel } = useProductStore();
-  const activeModel = activeFeatureModels[4] ?? modelPath;
+  const activeModel = activeFeatureModels[7] ?? modelPath;
   const [isVideoActive, setIsVideoActive] = useState(false);
   const [selectedFeature, setSelectedFeature] = useState(null);
   const [showFeatureDetails, setShowFeatureDetails] = useState(false);
@@ -22,19 +22,20 @@ export default function DEHNvenciModelViewer({ modelPath, setActiveFeature, acti
   }, [selectedFeature]);
 
   const hotspots = [
-        { id: 1, name: "Integrated Backup Fuse", video: "/DEHNVenci/integrated_backup_fuse.webp", position: "-0.0169m 0.1634m 0.0104m", hotspotPosition: { top: "10%", left: "75%" }, image: "/DEHNVenci/dehnvenci.png" },
-        { id: 2, name: "High Lightning Current Discharge Capacity", text: "Handles up to 25 kA (10/350 µs) Lightning Current", position: "0.0165m 0.1641m 0.0096m", hotspotPosition: { top: "15%", left: "89%" }, image: "/DEHNVenci/dehnvenci.png" },
-        { id: 3, name: "RADAX Flow Technology", text: "Extinguishes mains follow currents up to 100 kArms.", position: "-0.0167m 0.1100m 0.0351m",hotspotPosition: { top: "60%", left: "88%" }, image: "/DEHNVenci/dehnvenci.png" },
-        { id: 4, name: "Low Voltage Protection Level (≤ 1.5 kV)", text: "✅Keeps Voltage Levels Safe", position: "-0.0160m 0.0171m 0.0124m", hotspotPosition: { top: "65%", left: "77%" }, image: "/DEHNVenci/dehnvenci.png" },
-        { id: 5, name: "Green/Red Indicator for Fault Detection", text: "✅Visual Fault Indication for Quick Diagnosis", position: "0.0162m 0.0163m 0.0124m", hotspotPosition: { top: "85%", left: "75%" }, image: "/DEHNVenci/dehnvenci.png" }
+        { id: 1, name: "Lighting Protection", text: "⚡Isolating spark gap for hazardous areas",  hotspotPosition: { top: "10%", left: "75%" }, image: "/EXFS/EXFS_2.png" },
+        { id: 2, name: "High Current Capacity", text: "⚡Withstands 100 kA (10/350 µs) lightning impulse current", hotspotPosition: { top: "15%", left: "86%" }, image: "/EXFS/EXFS_2.png" },
+        { id: 3, name: "Low Sparkover Voltage", text: "📉 Ensures reliable equipotential bonding (≤ 1.25 kV)",hotspotPosition: { top: "50%", left: "88%" }, image: "/EXFS/EXFS_2.png" },
+        { id: 4, name: "ATEX & IECEx Certified", text: "✅ Approved for Ex Zone 1 (Gas) & Zone 21 (Dust)", hotspotPosition: { top: "65%", left: "77%" }, image: "/EXFS/EXFS_2.png" },
+        { id: 5, name: "Rugged and Waterproof", text: "IP67-rated for harsh environments",  hotspotPosition: { top: "85%", left: "75%" }, image: "/EXFS/EXFS_2.png" },
+        { id: 6, name: "Versatile Installation", video: "/EXFS/EXFS_2_feature.webp", hotspotPosition: { top: "95%", left: "82%" }, image: "/EXFS/EXFS_2.png" }
       ];
 
   return (
     <div className="flex items-center justify-center w-full relative">
     {isVideoActive && (
         <div className="absolute flex flex-col items-center bg-dehn-eerieblack bg-opacity-80 p-4 rounded-lg shadow-lg z-40">
-          <p className="text-white text-sm">Integrated Backup Fuse</p>
-         <img src="/DEHNVenci/integrated_backup_fuse.webp" alt="backup-fuse" className="w-80 h-80" />
+          <p className="text-white text-sm">Versatile Installation</p>
+         <img src="/EXFS/EXFS_2_feature.webp" alt="backup-fuse" className="w-100 h-60" />
           <button
             className="mt-2 bg-white text-white px-2 py-2 rounded-lg shadow-md transition duration-300 hover:bg-red-700 relative z-50 cursor-pointer"
             onClick={(e) => {
@@ -59,7 +60,7 @@ export default function DEHNvenciModelViewer({ modelPath, setActiveFeature, acti
         shadow-intensity="1"
         style={{ width: "800px", height: "420px" }}
       >
-        {hotspots.map((hotspot) => (
+        {/* {hotspots.map((hotspot) => (
           <button
             key={`hotspot-annotation-${hotspot.id}`}
             className={`Hotspot ${activeFeature?.id === hotspot.id ? "pulse" : ""}`}
@@ -74,7 +75,7 @@ export default function DEHNvenciModelViewer({ modelPath, setActiveFeature, acti
               if (hotspot.text) {
                 setActiveText(hotspot.text);
               }
-              if (hotspot.id === 1) {
+              if (hotspot.id === 6) {
                 setIsVideoActive(true);
               } else {
                 setIsVideoActive(false);
@@ -83,11 +84,11 @@ export default function DEHNvenciModelViewer({ modelPath, setActiveFeature, acti
           >
             <div className="HotspotAnnotation">{hotspot.id}</div>
           </button>
-        ))}
+        ))} */}
       </model-viewer>
 
       {activeText && (
-        <div className="absolute top-5 left-40 transform -translate-x-1/2  p-3  text-black animate-fadeIn fade-out">
+        <div className="absolute top-10 left-50 transform -translate-x-1/2  p-3  text-black animate-fadeIn fade-out">
           {/* <p className="text-sm font-bold">{selectedFeature?.name}</p> */}
           <p className="text-xs font-semibold animate-slideIn">{activeText}</p>
         </div>
@@ -113,7 +114,7 @@ export default function DEHNvenciModelViewer({ modelPath, setActiveFeature, acti
             setActiveFeatureModel(3, hotspot.url);
             setShowFeatureDetails(true);
             setActiveText(hotspot.text || null);
-            if (hotspot.id === 1) {
+            if (hotspot.id === 6) {
               setIsVideoActive(true);
             } else {
               setIsVideoActive(false);

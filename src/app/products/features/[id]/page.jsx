@@ -12,6 +12,8 @@ import BenefitsPage from "../../benefits/page";
 import AdditionalPage from "../../additional-info/page";
 import RecommendedProducts from "../../recommended/page";
 import DEHNguardModelViewer from "@/components/DEHNguardModelViewer";
+import EXFS_1ModelViewer from "@/components/EXFS_1ModelViewer";
+import EXFS_2ModelViewer from "@/components/EXFS_2ModelViewer";
 
 export default function ProductFeatures() {
   const { id: paramId } = useParams(); 
@@ -107,6 +109,19 @@ export default function ProductFeatures() {
     />
   ): id === 5 ? (
     <DEHNguardModelViewer 
+      modelPath={product.modelSrc} 
+      setActiveFeature={setActiveFeature} 
+      activeFeature={activeFeature} 
+    />
+  ): id === 6 ? (
+    <EXFS_1ModelViewer 
+      modelPath={product.modelSrc} 
+      setActiveFeature={setActiveFeature} 
+      activeFeature={activeFeature} 
+    />
+  )
+  : id === 7 ? (
+    <EXFS_2ModelViewer 
       modelPath={product.modelSrc} 
       setActiveFeature={setActiveFeature} 
       activeFeature={activeFeature} 
