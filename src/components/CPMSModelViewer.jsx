@@ -16,12 +16,12 @@ export default function CPMSModelViewer({ modelPath, setActiveFeature, activeFea
   }, [activeModel]);
 
   const hotspots = [
-    { id: 1, name: "AC Voltage Monitoring", image: "/CPMS/AC_voltage.webp", size: "w-10 h-10", position: { top: "5%", left: "85%" } },
+    { id: 1, name: "AC Voltage Monitoring", image: "/CPMS/AC_voltage.webp", size: "w-10 h-10", position: { top: "5%", left: "83%" } },
     { id: 2, name: "DC PSP ON/OFF Voltage Monitoring", image: "/CPMS/DC_PSP.webp", size: "w-10 h-8", position: { top: "25%", left: "78%" } },
-    { id: 3, name: "AC/DC Current Monitoring", image: "/CPMS/ACDC_current.webp", size: "w-12 h-12", position: { top: "40%", left: "90%" } },
-    { id: 4, name: "Wireless Connectivity via LoRa", image: "/CPMS/Internet.webp", size: "w-10 h-10", position: { top: "55%", left: "78%" } },
-    { id: 5, name: "Real-Time Data & History", image: "/CPMS/real_time.webp", size: "w-9 h-9", position: { top: "70%", left: "89%" } },
-    { id: 6, name: "Automated Alerts & Diagnostics", video: "/CPMS/CPMS Alert.mp4",image: "/CPMS/clapperboard.png", preview: "/CPMS/clapperboard.png", size: "w-8 h-8", position: { top: "85%", left: "73%" } } 
+    { id: 3, name: "AC/DC Current Monitoring", image: "/CPMS/ACDC_current.webp", size: "w-12 h-12", position: { top: "40%", left: "87%" } },
+    { id: 4, name: "Wireless Connectivity via LoRa", image: "/CPMS/Internet.webp", size: "w-10 h-10", position: { top: "55%", left: "79%" } },
+    { id: 5, name: "Real-Time Data & History", image: "/CPMS/real_time.webp", size: "w-9 h-9", position: { top: "74%", left: "85%" } },
+    { id: 6, name: "Automated Alerts & Diagnostics", video: "/CPMS/CPMS Alert.mp4",image: "/CPMS/clapperboard.png", preview: "/CPMS/clapperboard.png", size: "w-9 h-9", position: { top: "85%", left: "75%" } } 
   ];
 
   return (
@@ -57,7 +57,7 @@ export default function CPMSModelViewer({ modelPath, setActiveFeature, activeFea
       {hotspots.map((hotspot, index) => (
         <button
           key={hotspot.id}
-          className={`absolute flex items-center justify-center cursor-pointer ${
+          className={`absolute flex items-center justify-center cursor-pointer  ${
             activeMedia
               ? "w-10 h-10 bg-gray-500 text-white font-bold rounded-full shadow-lg right-5"
               : `${hotspot.size} bg-transparent rounded-full flex items-center justify-center text-white transition duration-300`
@@ -90,7 +90,7 @@ export default function CPMSModelViewer({ modelPath, setActiveFeature, activeFea
             <img
               src={hotspot.video ? hotspot.preview : hotspot.image} 
               alt={hotspot.name}
-              className="w-8 h-8 rounded-full border-2 border-dehn-red"
+              className="w-8 h-8 rounded-full border-2 p-1 border-dehn-red"
             />
           )}
         </button>
@@ -122,21 +122,24 @@ export default function CPMSModelViewer({ modelPath, setActiveFeature, activeFea
             zIndex: 100
           }}
         >
-          <div className="relative flex items-center justify-center bg-white rounded-full w-12 h-12 p-1 border-2 border-dehn-red">
+           <div className="relative flex items-center justify-center bg-white rounded-full w-10 h-10 p-1 border-2 border-dehn-red">
             <img src={selectedFeature.image} className="w-full h-full object-contain rounded-full" />
-            <span className="absolute top-[-0.25rem] right-[-0.25rem] bg-dehn-red text-white text-xs font-bold rounded-full px-1.5 py-0.5">
+            <span className="absolute top-[-0.2rem] right-[-0.25rem] bg-white text-dehn-red text-[0.5em] border border-dehn-red font-bold rounded-full px-1 py-0">
               {selectedFeature.id}
             </span>
           </div>
           <div className="flex flex-col flex-grow ml-3">
-            <h2 className="text-xs font-bold mt-2">{selectedFeature.name}</h2>
+            <h2 className="text-[0.6em] font-bold mt-2">{selectedFeature.name}</h2>
             <button className="mt-2 flex items-center space-x-2 py-1 rounded-full text-white font-bold">
               <span className="text-[0.5em]">Delve Deeper</span>
-              <img src="/assets/delve-deeper.png" alt="Delve Deeper" className="w-5 h-5 brightness-10 contrast-0" />
+              <img src="/assets/delve-deeper.png" alt="Delve Deeper" className="w-3 h-2.5 brightness-10 contrast-0" />
+              
             </button>
+            <div className="border border-dehn-red w-[70]"></div>
           </div>
         </div>
       )}
+    
 
       <style jsx>{`
         @keyframes fadeIn {

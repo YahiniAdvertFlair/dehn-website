@@ -31,12 +31,12 @@ export default function DEHNguardModelViewer({ modelPath, setActiveFeature, acti
   }, [isVideoActive]);
 
   const hotspots = [
-        { id: 1, name: "ACI Technology",videoText:"⚡Built-in switch/spark gap combination", video: "/DEHNguard/ACI_part_animation.mp4", position: "-0.034229252092449584m 0.09609835561690527m 0.01671331316461716m", hotspotPosition: { top: "10%", left: "75%" }, image: "/DEHNguard/dehnguard.png" },
-        { id: 2, name: "Status indication",videoText:"✅ Visual Fault Indication for Quick Diagnosis", video: "/DEHNguard/ACI_arc_fuse_current.mp4", position: "0.03299075453367157m 0.09595904160810245m 0.0168733273708101m", hotspotPosition: { top: "15%", left: "86%" }, image: "/DEHNguard/dehnguard.png" },
-        { id: 3, name: "Zero Leakage Current",videoText:"✅ Ensures safe and efficient operation", video: "/DEHNguard/current_dissipated_SPD.mp4", position: "-0.03497720896088569m 0.07384910615046268m 0.04418744728111765m",hotspotPosition: { top: "50%", left: "88%" }, image: "/DEHNguard/dehnguard.png" },
-        { id: 4, name: "High TOV Withstand(440V AC)", text: "⚡Handles temporary overvoltages effectively", position: "0.034446589678363275m 0.07452957860749204m 0.04370905489627286m", hotspotPosition: { top: "60%", left: "77%" }, image: "/DEHNguard/dehnguard.png" },
-        { id: 5, name: "Push-In Connection System", text: "🔌Quick and easy tool-free installation", position: "-0.034124522203320816m 0.012002792336987339m 0.019447603353213327m", hotspotPosition: { top: "75%", left: "75%" }, image: "/DEHNguard/dehnguard.png" },
-        { id: 6, name: "Vibration & Shock Tested", text: "🛡️Ensures durability in tough environments", position: "0.03479702838378839m 0.011463536687446332m 0.01931655630432m", hotspotPosition: { top: "73%", left: "87%" }, image: "/DEHNguard/dehnguard.png" }
+        { id: 1, name: "ACI Technology",videoText:"⚡Built-in switch/spark gap combination", video: "/DEHNguard/ACI_part_animation.mp4", position: "-0.034229252092449584m 0.09609835561690527m 0.01671331316461716m", hotspotPosition: { top: "1%", left: "72%" }, image: "/DEHNguard/dehnguard.png" },
+        { id: 2, name: "Status indication",videoText:"✅ Visual Fault Indication for Quick Diagnosis", video: "/DEHNguard/ACI_arc_fuse_current.mp4", position: "0.03299075453367157m 0.09595904160810245m 0.0168733273708101m", hotspotPosition: { top: "10%", left: "83%" }, image: "/DEHNguard/dehnguard.png" },
+        { id: 3, name: "Zero Leakage Current",videoText:"✅ Ensures safe and efficient operation", video: "/DEHNguard/current_dissipated_SPD.mp4", position: "-0.03497720896088569m 0.07384910615046268m 0.04418744728111765m",hotspotPosition: { top: "30%", left: "79%" }, image: "/DEHNguard/dehnguard.png" },
+        { id: 4, name: "High TOV Withstand(440V AC)", text: "⚡Handles temporary overvoltages effectively", position: "0.034446589678363275m 0.07452957860749204m 0.04370905489627286m", hotspotPosition: { top: "55%", left: "86%" }, image: "/DEHNguard/dehnguard.png" },
+        { id: 5, name: "Push-In Connection System", text: "🔌Quick and easy tool-free installation", position: "-0.034124522203320816m 0.012002792336987339m 0.019447603353213327m", hotspotPosition: { top: "70%", left: "78%" }, image: "/DEHNguard/dehnguard.png" },
+        { id: 6, name: "Vibration & Shock Tested", text: "🛡️Ensures durability in tough environments", position: "0.03479702838378839m 0.011463536687446332m 0.01931655630432m", hotspotPosition: { top: "89%", left: "80%" }, image: "/DEHNguard/dehnguard.png" }
       ];
 
   return (
@@ -146,25 +146,27 @@ export default function DEHNguardModelViewer({ modelPath, setActiveFeature, acti
         <div
           className="absolute flex items-center bg-gray-800 text-white p-1 px-3 rounded-full shadow-lg w-64 border-l-4 border-dehn-red max-w-md transition-all duration-500"
           style={{
-            top: "40%",
+            top: "47%",
             left: "88%",
             transform: "translate(-50%, -50%)",
             opacity: 1,
             zIndex: 100
           }}
         >
-          <div className="relative flex items-center justify-center bg-white rounded-full w-10 h-10 p-1 border-2 border-gray-200">
+         <div className="relative flex items-center justify-center bg-white rounded-full w-10 h-10 p-1 border-2 border-dehn-red">
             <img src={selectedFeature.image} className="w-full h-full object-contain rounded-full" />
-            <span className="absolute top-[-0.25rem] right-[-0.25rem] bg-white text-dehn-red text-[0.5em] font-bold border border-dehn-red rounded-full px-1 py-0.1">
+            <span className="absolute top-[-0.2rem] right-[-0.25rem] bg-white text-dehn-red text-[0.5em] border border-dehn-red font-bold rounded-full px-1 py-0">
               {selectedFeature.id}
             </span>
           </div>
           <div className="flex flex-col flex-grow ml-3">
-            <h2 className="text-xs font-bold mt-2">{selectedFeature.name}</h2>
+            <h2 className="text-[0.6em] font-bold mt-2">{selectedFeature.name}</h2>
             <button className="mt-2 flex items-center space-x-2 py-1 rounded-full text-white font-bold">
               <span className="text-[0.5em]">Delve Deeper</span>
-              <img src="/assets/delve-deeper.png" alt="Delve Deeper" className="w-5 h-5 brightness-10 contrast-0" />
+              <img src="/assets/delve-deeper.png" alt="Delve Deeper" className="w-3 h-2.5 brightness-10 contrast-0" />
+              
             </button>
+            <div className="border border-dehn-red w-[70]"></div>
           </div>
         </div>
       )}

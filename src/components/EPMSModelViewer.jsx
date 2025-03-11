@@ -20,10 +20,10 @@ export default function EPMSModelViewer({ modelPath, setActiveFeature, activeFea
 
   const hotspots = [
     { id: 1, name: "Earth Resistance Measurement", url: "/EPMS/EPMS_Earth_Resistance.glb", position: "-0.173m 0.299m 0.010m", hotspotPosition: { top: "10%", left: "75%" }, image: "/EPMS/EPMS_1.png" },
-    { id: 2, name: "Earth Integrity", url: "/EPMS/EPMS_Wire_connect.glb", position: "0.173m 0.295m 0.013m", hotspotPosition: { top: "15%", left: "89%" }, image: "/EPMS/EPMS_1.png" },
-    { id: 3, name: "Neutral-Earth Voltage", url: "/EPMS/EPMS_Earth_Neutral.glb", position: "-0.179m 0.220m 0.109m", hotspotPosition: { top: "60%", left: "88%" }, image: "/EPMS/EPMS_3.png" },
-    { id: 4, name: "Earth Leakage Current", url: "/EPMS/EPMS_Earth_Leak.glb", position: "-0.185m 0.036m 0.013m", hotspotPosition: { top: "65%", left: "77%" }, image: "/EPMS/EPMS_4.png" },
-    { id: 5, name: "Noise Filtering", url: "/EPMS/noise_filter.mp4", position: "0.186m 0.045m 0.014m", hotspotPosition: { top: "85%", left: "75%" }, image: "/CPMS/clapperboard.png" }
+    { id: 2, name: "Earth Integrity", url: "/EPMS/EPMS_Wire_connect.glb", position: "0.173m 0.295m 0.013m", hotspotPosition: { top: "25%", left: "86%" }, image: "/EPMS/EPMS_1.png" },
+    { id: 3, name: "Neutral-Earth Voltage", url: "/EPMS/EPMS_Earth_Neutral.glb", position: "-0.179m 0.220m 0.109m", hotspotPosition: { top: "50%", left: "80%" }, image: "/EPMS/EPMS_3.png" },
+    { id: 4, name: "Earth Leakage Current", url: "/EPMS/EPMS_Earth_Leak.glb", position: "-0.185m 0.036m 0.013m", hotspotPosition: { top: "70%", left: "86%" }, image: "/EPMS/EPMS_4.png" },
+    { id: 5, name: "Noise Filtering", url: "/EPMS/noise_filter.mp4", position: "0.186m 0.045m 0.014m", hotspotPosition: { top: "81%", left: "76%" }, image: "/CPMS/clapperboard.png" }
   ];
 
   return (
@@ -85,7 +85,7 @@ export default function EPMSModelViewer({ modelPath, setActiveFeature, activeFea
       {hotspots.map((hotspot) => (
         <button
           key={`hotspot-btn-${hotspot.id}`}
-          className={`absolute flex items-center justify-center cursor-pointer transition-all duration-500 ${
+          className={`absolute flex items-center justify-center cursor-pointer transition-all duration-500  ${
             selectedFeature?.id === hotspot.id ? "scale-125 opacity-0" : "opacity-100"
           }`}
           style={{
@@ -109,7 +109,7 @@ export default function EPMSModelViewer({ modelPath, setActiveFeature, activeFea
             }
           }}
         >
-          <img src={hotspot.image} className="w-8 h-8 rounded-full border-2 border-dehn-red" />
+          <img src={hotspot.image} className="w-8 h-8 rounded-full border-2 p-1 border-dehn-red" />
         </button>
       ))}
         {selectedFeature && showFeatureDetails && (
@@ -123,18 +123,20 @@ export default function EPMSModelViewer({ modelPath, setActiveFeature, activeFea
             zIndex: 100
           }}
         >
-          <div className="relative flex items-center justify-center bg-white rounded-full w-12 h-12 p-1 border-2 border-dehn-red">
+          <div className="relative flex items-center justify-center bg-white rounded-full w-10 h-10 p-1 border-2 border-dehn-red">
             <img src={selectedFeature.image} className="w-full h-full object-contain rounded-full" />
-            <span className="absolute top-[-0.2rem] right-[-0.25rem] bg-red-600 text-white text-xs font-bold rounded-full px-1.5 py-0.5">
+            <span className="absolute top-[-0.2rem] right-[-0.25rem] bg-white text-dehn-red text-[0.5em] border border-dehn-red font-bold rounded-full px-1 py-0">
               {selectedFeature.id}
             </span>
           </div>
           <div className="flex flex-col flex-grow ml-3">
-            <h2 className="text-xs font-bold mt-2">{selectedFeature.name}</h2>
+            <h2 className="text-[0.6em] font-bold mt-2">{selectedFeature.name}</h2>
             <button className="mt-2 flex items-center space-x-2 py-1 rounded-full text-white font-bold">
               <span className="text-[0.5em]">Delve Deeper</span>
-              <img src="/assets/delve-deeper.png" alt="Delve Deeper" className="w-5 h-5 brightness-10 contrast-0" />
+              <img src="/assets/delve-deeper.png" alt="Delve Deeper" className="w-3 h-2.5 brightness-10 contrast-0" />
+              
             </button>
+            <div className="border border-dehn-red w-[70]"></div>
           </div>
         </div>
       )}

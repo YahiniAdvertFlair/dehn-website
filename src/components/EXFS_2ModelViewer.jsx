@@ -22,12 +22,12 @@ export default function EXFS_2ModelViewer({ modelPath, setActiveFeature, activeF
   }, [selectedFeature]);
 
   const hotspots = [
-        { id: 1, name: "Lighting Protection", text: "⚡Isolating spark gap for hazardous areas",  hotspotPosition: { top: "10%", left: "75%" }, image: "/EXFS/EXFS_2.png" },
-        { id: 2, name: "High Current Capacity", text: "⚡Withstands 100 kA (10/350 µs) lightning impulse current", hotspotPosition: { top: "15%", left: "86%" }, image: "/EXFS/EXFS_2.png" },
-        { id: 3, name: "Low Sparkover Voltage", text: "📉 Ensures reliable equipotential bonding (≤ 1.25 kV)",hotspotPosition: { top: "50%", left: "88%" }, image: "/EXFS/EXFS_2.png" },
-        { id: 4, name: "ATEX & IECEx Certified", text: "✅ Approved for Ex Zone 1 (Gas) & Zone 21 (Dust)", hotspotPosition: { top: "65%", left: "77%" }, image: "/EXFS/EXFS_2.png" },
-        { id: 5, name: "Rugged and Waterproof", text: "IP67-rated for harsh environments",  hotspotPosition: { top: "85%", left: "75%" }, image: "/EXFS/EXFS_2.png" },
-        { id: 6, name: "Versatile Installation", video: "/EXFS/EXFS_2_feature.webp", hotspotPosition: { top: "90%", left: "82%" }, image: "/EXFS/EXFS_2.png" }
+        { id: 1, name: "Lighting Protection", text: "⚡Isolating spark gap for hazardous areas",  hotspotPosition: { top: "5%", left: "74%" }, image: "/EXFS/EXFS_2.png" },
+        { id: 2, name: "High Current Capacity", text: "⚡Withstands 100 kA (10/350 µs) lightning impulse current", hotspotPosition:  { top: "15%", left: "85%" }, image: "/EXFS/EXFS_2.png" },
+        { id: 3, name: "Low Sparkover Voltage", text: "📉 Ensures reliable equipotential bonding (≤ 1.25 kV)",hotspotPosition:{ top: "33%", left: "80%" }, image: "/EXFS/EXFS_2.png" },
+        { id: 4, name: "ATEX & IECEx Certified", text: "✅ Approved for Ex Zone 1 (Gas) & Zone 21 (Dust)", hotspotPosition: { top: "57%", left: "87%" }, image: "/EXFS/EXFS_2.png" },
+        { id: 5, name: "Rugged and Waterproof", text: "IP67-rated for harsh environments",  hotspotPosition:{ top: "73%", left: "78%" }, image: "/EXFS/EXFS_2.png" },
+        { id: 6, name: "Versatile Installation", video: "/EXFS/EXFS_2_feature.webp", hotspotPosition: { top: "92%", left: "81%" }, image: "/EXFS/EXFS_2.png" }
       ];
 
   return (
@@ -60,31 +60,7 @@ export default function EXFS_2ModelViewer({ modelPath, setActiveFeature, activeF
         shadow-intensity="1"
         style={{ width: "50rem", height: "28rem" }}
       >
-        {/* {hotspots.map((hotspot) => (
-          <button
-            key={`hotspot-annotation-${hotspot.id}`}
-            className={`Hotspot ${activeFeature?.id === hotspot.id ? "pulse" : ""}`}
-            slot={`hotspot-${hotspot.id}`}
-            data-position={hotspot.position}
-            data-normal="0m 0.7m 0.7m"
-            onClick={() => {
-              console.log("Annotation Clicked:", hotspot.id);
-              setActiveFeature(hotspot);
-              setSelectedFeature(hotspot);
-              setShowFeatureDetails(true);
-              if (hotspot.text) {
-                setActiveText(hotspot.text);
-              }
-              if (hotspot.id === 6) {
-                setIsVideoActive(true);
-              } else {
-                setIsVideoActive(false);
-              }
-            }}
-          >
-            <div className="HotspotAnnotation">{hotspot.id}</div>
-          </button>
-        ))} */}
+      
       </model-viewer>
 
       {activeText && (
@@ -127,25 +103,27 @@ export default function EXFS_2ModelViewer({ modelPath, setActiveFeature, activeF
         <div
           className="absolute flex items-center bg-gray-800 text-white p-1 px-3 rounded-full shadow-lg w-64 border-l-4 border-dehn-red max-w-md transition-all duration-500"
           style={{
-            top: "40%",
+            top: "48%",
             left: "88%",
             transform: "translate(-50%, -50%)",
             opacity: 1,
             zIndex: 100
           }}
         >
-          <div className="relative flex items-center justify-center bg-white rounded-full w-10 h-10 p-1 border-2 border-gray-200">
+       <div className="relative flex items-center justify-center bg-white rounded-full w-10 h-10 p-1 border-2 border-dehn-red">
             <img src={selectedFeature.image} className="w-full h-full object-contain rounded-full" />
-            <span className="absolute top-[-0.25rem] right-[-0.25rem] bg-white text-dehn-red text-[0.5em] font-bold border border-dehn-red rounded-full px-1 py-0.1">
+            <span className="absolute top-[-0.2rem] right-[-0.25rem] bg-white text-dehn-red text-[0.5em] border border-dehn-red font-bold rounded-full px-1 py-0">
               {selectedFeature.id}
             </span>
           </div>
           <div className="flex flex-col flex-grow ml-3">
-            <h2 className="text-xs font-bold mt-2">{selectedFeature.name}</h2>
+            <h2 className="text-[0.6em] font-bold mt-2">{selectedFeature.name}</h2>
             <button className="mt-2 flex items-center space-x-2 py-1 rounded-full text-white font-bold">
               <span className="text-[0.5em]">Delve Deeper</span>
-              <img src="/assets/delve-deeper.png" alt="Delve Deeper" className="w-5 h-5 brightness-10 contrast-0" />
+              <img src="/assets/delve-deeper.png" alt="Delve Deeper" className="w-3 h-2.5 brightness-10 contrast-0" />
+              
             </button>
+            <div className="border border-dehn-red w-[70]"></div>
           </div>
         </div>
       )}
