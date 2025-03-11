@@ -25,8 +25,8 @@ export default function ModelViewer({ modelPath, size = "small" }) {
         field-of-view="30deg"
         
         style={{
-          width: size === "large" ? "20rem" : "10rem", 
-          height: size === "large" ? "14rem" : "9rem",
+          width: size === "large" ? "20rem" : "20rem", 
+          height: size === "large" ? "14rem" : "14rem",
           backgroundColor: "transparent",
         }}
         onLoad={() => setIsLoaded(true)}
