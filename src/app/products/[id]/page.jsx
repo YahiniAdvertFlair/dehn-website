@@ -74,7 +74,6 @@ export default function ProductDetails() {
         </div>
       )}
 
-      {/* ✅ Model Viewer with Fullscreen Adjustments */}
       <div
         ref={modelRef}
         className={`relative flex items-center justify-center bg-transparent ${

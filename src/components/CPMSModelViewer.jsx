@@ -44,6 +44,7 @@ export default function CPMSModelViewer({ modelPath, setActiveFeature, activeFea
           src={activeModel}
           ar
           ar-modes="webxr scene-viewer quick-look"
+          disable-pan
           camera-controls
           min-camera-orbit="auto auto 1m"
           max-camera-orbit="auto auto 3m"

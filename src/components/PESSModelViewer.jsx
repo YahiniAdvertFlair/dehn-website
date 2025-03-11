@@ -29,6 +29,8 @@ export default function PESSModelViewer({ modelPath, setActiveFeature, activeFea
         ar
         ar-modes="webxr scene-viewer quick-look"
         camera-controls
+        disable-pan
+
         tone-mapping="neutral"
         shadow-intensity="1"
         style={{ width: "50rem", height: "28rem" }}

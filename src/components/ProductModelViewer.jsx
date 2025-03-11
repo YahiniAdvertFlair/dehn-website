@@ -47,7 +47,7 @@ export default function ProductModelViewer({ modelPath, size = "small" }) {
         auto-rotate
         camera-controls
         interaction-prompt="auto"
-        disable-pan="false"
+        disable-pan
         shadow-intensity="1"
         scale={modelScale}
         camera-orbit={cameraOrbit}
