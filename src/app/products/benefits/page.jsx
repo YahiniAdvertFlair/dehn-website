@@ -24,7 +24,7 @@ export default function BenefitsPage() {
   }
 
   return (
-    <div className="flex flex-col items-center py-10 px-5 md:px-20 relative">
+    <div className="flex flex-col items-center py-14 px-5 md:px-20 relative">
       <h2 className="text-dehn-red text-3xl md:text-4xl font-bold text-center">
         Key Benefits
       </h2>

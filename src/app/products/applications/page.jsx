@@ -21,7 +21,7 @@ export default function ApplicationPage() {
   }, [product]);
 
   return (
-    <div className="flex flex-col items-center justify-center py-10 relative">
+    <div className="flex flex-col items-center justify-center py-12 relative">
       <h1 className="text-4xl font-bold text-dehn-red text-center">
         Utilize in Various Applications
       </h1>

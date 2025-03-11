@@ -103,7 +103,7 @@ export default function EXFS_1ModelViewer({ modelPath, setActiveFeature, activeF
       ))}
         {selectedFeature && showFeatureDetails && (
         <div
-          className="absolute flex items-center bg-gray-800 text-white p-1 px-3 rounded-full shadow-lg w-64 border-l-4 border-dehn-red max-w-md transition-all duration-500"
+          className="absolute flex items-center bg-gray-800 text-white p-1 px-3 rounded-full shadow-lg w-54 border-l-4 border-dehn-red max-w-md transition-all duration-500"
           style={{
             top: "48%",
             left: "88%",
