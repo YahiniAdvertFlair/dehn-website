@@ -25,7 +25,6 @@ export default function BenefitsPage() {
 
   return (
     <div className="flex flex-col items-center py-10 px-5 md:px-20 relative">
-      {/* Header */}
       <h2 className="text-red-600 text-3xl md:text-4xl font-bold text-center">
         Key Benefits
       </h2>
@@ -33,7 +32,6 @@ export default function BenefitsPage() {
         Explore how {product.title} empowers your industry.
       </p>
 
-      {/* Scrollable Benefits Section */}
       <div className="relative mt-8 w-full overflow-hidden">
         <div className="flex items-center justify-center space-x-6 md:space-x-10 transition-all duration-500">
           {product.benefits.map((benefit, index) => {

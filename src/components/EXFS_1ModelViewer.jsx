@@ -137,7 +137,7 @@ export default function EXFS_1ModelViewer({ modelPath, setActiveFeature, activeF
         >
           <div className="relative flex items-center justify-center bg-white rounded-full w-10 h-10 p-1 border-2 border-gray-200">
             <img src={selectedFeature.image} className="w-full h-full object-contain rounded-full" />
-            <span className="absolute top-[-4px] right-[-4px] bg-white text-dehn-red text-[0.5em] font-bold border border-dehn-red rounded-full px-1 py-0.1">
+            <span className="absolute top-[-0.25rem] right-[-0.25rem] bg-white text-dehn-red text-[0.5em] font-bold border border-dehn-red rounded-full px-1 py-0.1">
               {selectedFeature.id}
             </span>
           </div>
@@ -154,8 +154,8 @@ export default function EXFS_1ModelViewer({ modelPath, setActiveFeature, activeF
         .pulse::before {
           content: "";
           position: absolute;
-          width: 20px;
-          height: 20px;
+          width: 1.25rem;
+          height: 1.25rem;
           border-radius: 50%;
           background: rgba(255, 69, 0, 0.6);
           top: 60%;
@@ -180,7 +180,7 @@ export default function EXFS_1ModelViewer({ modelPath, setActiveFeature, activeF
         }
            @keyframes slideIn {
     0% {
-      transform: translateY(10px);
+      transform: translateY(0.625rem);
       opacity: 0;
     }
     100% {

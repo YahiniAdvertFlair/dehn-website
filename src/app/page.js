@@ -27,7 +27,7 @@ export default function Home() {
                <div
           key={product.id}
           className="bg-dehn-offwhite p-4 rounded-xl shadow-lg cursor-pointer hover:shadow-xl transition"
-          onClick={() => router.push(`/products/${product.id}`)} // Navigate on click
+          onClick={() => router.push(`/products/${product.id}`)} 
         >
             <div className=" h-60">
               <ModelViewer modelPath={product.modelSrc} />

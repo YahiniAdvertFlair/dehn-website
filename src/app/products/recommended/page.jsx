@@ -25,10 +25,10 @@ export default function RecommendedProducts() {
             <div className="">
           <div
             key={product.id}
-            className="flex flex-col items-center justify-between bg-white rounded-xl p-4 shadow-md cursor-pointer transition-transform duration-300 hover:scale-105 min-w-[220px] max-w-[220px] h-[200px]"
+            className="flex flex-col items-center justify-between bg-white rounded-xl p-4 shadow-md cursor-pointer transition-transform duration-300 hover:scale-105 min-w-[13.75rem] max-w-[13.75rem] h-[12.5rem]"
             onClick={() => router.push(`/products/features/${product.id}`)}
           >
-            <div className="w-full h-[150px] flex items-center justify-center">
+            <div className="w-full h-[9.375rem] flex items-center justify-center">
               <Image
                 src={product.image}
                 width={160}

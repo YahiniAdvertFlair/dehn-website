@@ -38,7 +38,7 @@ export default function ApplicationPage() {
           className="w-full h-full object-cover transition-opacity duration-500 ease-in-out rounded-xl"
         />
 
-        <div className="absolute left-[-50px] top-1/2 transform -translate-y-1/2 flex flex-col space-y-12">
+        <div className="absolute left-[-3.125rem] top-1/2 transform -translate-y-1/2 flex flex-col space-y-12">
           {applications.slice(0, 3).map((app, index) => (
             <div
             key={index}
@@ -68,7 +68,7 @@ export default function ApplicationPage() {
           ))}
         </div>
 
-        <div className="absolute right-[-50px] top-1/2 transform -translate-y-1/2 flex flex-col space-y-12">
+        <div className="absolute right-[-3.125rem] top-1/2 transform -translate-y-1/2 flex flex-col space-y-12">
           {applications.slice(3, 8).map((app, index) => (
             <div
               key={index}

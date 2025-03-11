@@ -31,7 +31,7 @@ export default function PESSModelViewer({ modelPath, setActiveFeature, activeFea
         camera-controls
         tone-mapping="neutral"
         shadow-intensity="1"
-        style={{ width: "800px", height: "420px" }}
+        style={{ width: "50rem", height: "28rem" }}
       >
         {hotspots.map((hotspot) => (
           <button
@@ -90,7 +90,7 @@ export default function PESSModelViewer({ modelPath, setActiveFeature, activeFea
         >
           <div className="relative flex items-center justify-center bg-white rounded-full w-12 h-12 p-1 border-2 border-dehn-red">
             <img src={selectedFeature.image} className="w-full h-full object-contain rounded-full" />
-            <span className="absolute top-[-4px] right-[-4px] bg-red-600 text-white text-xs font-bold rounded-full px-1.5 py-0.5">
+            <span className="absolute top-[-0.25rem] right-[-0.25rem] bg-red-600 text-white text-xs font-bold rounded-full px-1.5 py-0.5">
               {selectedFeature.id}
             </span>
           </div>
@@ -108,8 +108,8 @@ export default function PESSModelViewer({ modelPath, setActiveFeature, activeFea
         .pulse::before {
           content: "";
           position: absolute;
-          width: 20px;
-          height: 20px;
+          width: 1.25rem;
+          height: 1.25rem;
           border-radius: 50%;
           background: rgba(255, 69, 0, 0.6);
           top: 60%;

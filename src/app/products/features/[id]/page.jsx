@@ -66,9 +66,9 @@ export default function ProductFeatures() {
       <div 
   className="relative flex items-center justify-center p-6 border border-gray-400 rounded-lg bg-cover bg-center bg-no-repeat "
   style={{
-    minWidth: "900px", 
-    minHeight: "450px", 
-    height: "450px", 
+    minWidth: "56.25rem", 
+    minHeight: "28.125rem", 
+    height: "28.125rem", 
     width: "auto",
     transition: "all 0.3s ease-in-out"
   }}
@@ -88,7 +88,7 @@ export default function ProductFeatures() {
       className="rounded-lg shadow-lg"
       onEnded={() => setIsVideoActive(false)} 
       style={{ display: isVideoActive ? "block" : "none",
-        maxHeight: "430px",  
+        maxHeight: "26.875rem",  
 
       }}     
     >

@@ -27,8 +27,8 @@ export default function ProductModelViewer({ modelPath, size = "small" }) {
         min-field-of-view="30deg"
         max-field-of-view="90deg" 
         style={{
-          width: size === "large" ? "600px" : "1000px", 
-          height: size === "large" ? "600px" : "420px",
+          width: size === "large" ? "37.5rem" : "62.5rem", 
+          height: size === "large" ? "37.5rem" : "26.25rem",
           backgroundColor: "transparent",
         }}
         onLoad={() => setIsLoaded(true)}

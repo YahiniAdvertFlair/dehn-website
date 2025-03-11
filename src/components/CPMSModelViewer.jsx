@@ -34,7 +34,7 @@ export default function CPMSModelViewer({ modelPath, setActiveFeature, activeFea
           <img
             src={activeMedia.src}
             alt="Feature Image"
-            className="w-[800px] h-[420px] object-contain rounded-lg shadow-lg"
+            className="w-[50rem] h-[26.25rem] object-contain rounded-lg shadow-lg"
           />
         )
       ) : (
@@ -47,7 +47,7 @@ export default function CPMSModelViewer({ modelPath, setActiveFeature, activeFea
           max-camera-orbit="auto auto 3m"
           tone-mapping="neutral"
           shadow-intensity="1"
-          style={{ width: "800px", height: "420px" }}
+          style={{ width: "50rem", height: "26.25rem" }}
           className="model-container"
         />
       )}
@@ -113,7 +113,7 @@ export default function CPMSModelViewer({ modelPath, setActiveFeature, activeFea
         @keyframes fadeIn {
           from {
             opacity: 0;
-            transform: translateX(20px);
+            transform: translateX(1.25rem);
           }
           to {
             opacity: 1;
