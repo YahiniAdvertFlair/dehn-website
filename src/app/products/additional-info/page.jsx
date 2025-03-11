@@ -47,7 +47,6 @@ export default function AdditionalPage() {
      <div className="mt-6 w-full max-w-3xl bg-white shadow-md rounded-xl p-4">
   {activeTab === "technical" ? (
     <div className="flex flex-col items-center">
-      {/* <h3 className="text-lg font-bold text-red-600">Technical Data</h3> */}
       {product.technical ? (
         <Image
           src={product.technical}

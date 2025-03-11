@@ -67,8 +67,8 @@ export default function ProductFeatures() {
   className="relative flex items-center justify-center p-6 border border-gray-400 rounded-lg bg-cover bg-center bg-no-repeat "
   style={{
     minWidth: "56.25rem", 
-    minHeight: "28.125rem", 
-    height: "28.125rem", 
+    minHeight: "30rem", 
+    height: "30rem", 
     width: "auto",
     transition: "all 0.3s ease-in-out"
   }}

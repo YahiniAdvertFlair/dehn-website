@@ -25,7 +25,7 @@ export default function BenefitsPage() {
 
   return (
     <div className="flex flex-col items-center py-10 px-5 md:px-20 relative">
-      <h2 className="text-red-600 text-3xl md:text-4xl font-bold text-center">
+      <h2 className="text-dehn-red text-3xl md:text-4xl font-bold text-center">
         Key Benefits
       </h2>
       <p className="text-gray-500 text-center mt-2">
@@ -41,7 +41,7 @@ export default function BenefitsPage() {
               <div
                 key={index}
                 className={`relative flex flex-col items-center p-4 rounded-2xl transition-all duration-500 cursor-pointer 
-                  ${isActive ? "scale-90 shadow-lg bg-white border-2 border-red-600" : "opacity-60 scale-90 bg-gray-100"}
+                  ${isActive ? "scale-90 shadow-lg bg-white border-2 border-dehn-red" : "opacity-60 scale-90 bg-gray-100"}
                 `}
                 onClick={() => setActiveIndex(index)}
               >
@@ -53,7 +53,7 @@ export default function BenefitsPage() {
                   className="rounded-lg"
                 />
 
-                <h3 className={`mt-3 text-center text-lg font-bold ${isActive ? "text-red-600" : "text-gray-800"}`}>
+                <h3 className={`mt-3 text-center text-lg font-bold ${isActive ? "text-dehn-red" : "text-gray-800"}`}>
                   {benefit.label}
                 </h3>
 
@@ -85,7 +85,7 @@ export default function BenefitsPage() {
           <div
             key={index}
             className={`w-3 h-3 rounded-full transition-all duration-300 cursor-pointer
-            ${index === activeIndex ? "bg-red-600 w-6" : "bg-gray-300"}
+            ${index === activeIndex ? "bg-dehn-red w-6" : "bg-gray-300"}
           `}
           ></div>
         ))}

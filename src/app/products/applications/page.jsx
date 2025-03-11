@@ -22,7 +22,7 @@ export default function ApplicationPage() {
 
   return (
     <div className="flex flex-col items-center justify-center py-10 relative">
-      <h1 className="text-4xl font-bold text-red-600 text-center">
+      <h1 className="text-4xl font-bold text-dehn-red text-center">
         Utilize in Various Applications
       </h1>
       <p className="text-gray-600 mt-2 text-center">
@@ -46,9 +46,9 @@ export default function ApplicationPage() {
             onClick={() => setSelectedApp(app)}
           >
             <div
-              className={`p-2 bg-white border-2 rounded-full shadow-lg cursor-pointer transition-all ${
-                selectedApp?.name === app.name ? "border-red-600" : "border-gray-300"
-              } hover:bg-gray-100 hover:border-red-600`}
+              className={`p-2 bg-white border-2 rounded-full shadow-lg cursor-pointer transition-all w-full  ${
+                selectedApp?.name === app.name ? "border-dehn-red" : "border-gray-300"
+              } hover:bg-gray-100 hover:border-dehn-red`}
             >
               <img
                 src="/assets/delve-deeper.png"
@@ -58,10 +58,11 @@ export default function ApplicationPage() {
             </div>
 
             {hoveredApp?.name === app.name && (
-              <div className="absolute left-10 px-3 py-1.5 bg-white text-gray-800 text-sm font-bold shadow-md rounded-lg transition-opacity duration-300">
-                {app.name}
-              </div>
-            )}
+  <div className="absolute left-10 px-3 py-1.5 bg-white text-gray-800 text-sm font-bold shadow-md rounded-lg transition-opacity duration-300 whitespace-nowrap min-w-max">
+    {app.name}
+  </div>
+)}
+
           </div>
           ))}
         </div>
@@ -77,8 +78,8 @@ export default function ApplicationPage() {
             >
           <div
               className={`p-2 bg-white border-2 rounded-full shadow-lg cursor-pointer transition-all ${
-                selectedApp?.name === app.name ? "border-red-600" : "border-gray-300"
-              } hover:bg-gray-100 hover:border-red-600`}
+                selectedApp?.name === app.name ? "border-dehn-red" : "border-gray-300"
+              } hover:bg-gray-100 hover:border-dehn-red`}
             >
               <img
                 src="/assets/delve-deeper.png"

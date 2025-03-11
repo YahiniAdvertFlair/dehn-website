@@ -6,7 +6,7 @@ const initialProducts = [
   {
     id: 1,
     title: "DEHNrecord SD EPMS",
-    description: "Advance solution for precise, reliable, and efficient grounding measurements.",
+    description: "Advanced solution for precise, reliable, and efficient grounding measurements.",
     image: "/assets/EPMS.png",
     modelSrc: `${S3_BASE_URL}EPMS.glb`,
     "brochure": "/EPMS/EPMS_brochure.png",
@@ -185,7 +185,7 @@ const initialProducts = [
     title: "DEHNvenCI",
     description: "Advanced single-pole lightning current and surge arrester with an integrated backup fuse, ensuring superior protection.",
     image: "/assets/dehnvenci.png",
-    modelSrc: `${S3_BASE_URL}DEHNcenCI.glb`,
+    modelSrc: `${S3_BASE_URL}DEHNvenCI.glb`,
     arLink: "https://beta.portfolio.advflr.com/turnaround/client/dehn/DEHNvenCI",
     brochure: "/DEHNVenci/general_QR.png",
     technical: "/DEHNVenci/venci_technical_sheet.jpg",
