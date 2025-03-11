@@ -21,7 +21,7 @@ export default function ProductModelViewer({ modelPath, size = "small" }) {
       setCameraOrbit("0deg 90deg 4m"); 
       setFieldOfView("60deg"); 
     } else {
-      setModelScale("3 3 3");
+      setModelScale("4 4 4");
       setCameraOrbit("0deg 90deg 3m");
       setFieldOfView("45deg");
     }
