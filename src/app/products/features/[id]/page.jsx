@@ -152,7 +152,7 @@ export default function ProductFeatures() {
       <div className="fixed bottom-10 left-20 flex flex-row items-center space-x-2 cursor-pointer">
         <button
           onClick={() => router.push(`/products/${id}`)}
-          className="p-3 border border-dehn-red rounded-full text-dehn-red hover:bg-gray-200 hover:text-white"
+          className="p-3 border border-dehn-red rounded-full text-dehn-red hover:bg-gray-200 hover:text-white cursor-pointer"
         >
           <img src="/assets/arrow.png" alt="Back" className="w-5 h-5" />
         </button>
