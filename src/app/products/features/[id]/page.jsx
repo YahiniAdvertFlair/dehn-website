@@ -156,7 +156,7 @@ export default function ProductFeatures() {
         >
           <img src="/assets/arrow.png" alt="Back" className="w-5 h-5" />
         </button>
-        <span className="text-sm text-red-600 font-bold">Back to Product</span>
+        <span className="text-sm text-dehn-red font-bold">Back to Product</span>
       </div>
 
       <div className="fixed bottom-10 right-20 flex flex-row items-center space-x-2">
@@ -166,7 +166,7 @@ export default function ProductFeatures() {
             setIsScrollingUp(true); 
             setTimeout(() => setIsScrollingUp(false), 800); 
           }}
-          className="p-3 border border-dehn-red rounded-full text-red-600 hover:bg-dehn-eerieblack hover:text-white"
+          className="p-3 border border-dehn-red rounded-full text-dehn-red hover:bg-dehn-eerieblack hover:text-white"
         >
           <img src="/assets/delve-deeper.png" alt="Delve Deeper" className="w-5 h-5" />
         </button>

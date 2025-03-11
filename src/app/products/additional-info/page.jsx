@@ -44,29 +44,36 @@ export default function AdditionalPage() {
        </button>
      </div>
 
-      <div className="mt-6 w-full max-w-3xl bg-white shadow-md rounded-xl p-4">
-        {activeTab === "technical" ? (
-          <div className="flex flex-col items-center">
-            {/* <h3 className="text-lg font-bold text-red-600">Technical Data</h3> */}
-            <Image
-              src={product.technical}
-              alt="Technical Sheet"
-              width={600}
-              height={400}
-              className="rounded-lg mt-4"
-            />
-          </div>
-        ) : (
-          <div className="flex flex-col items-center p-4">
-            <h3 className="text-lg font-bold text-red-600 p-2"> Scan QR to Download Brochure</h3>
-            {product.brochure ? (
-           <img src={product.brochure} className="w-100 h-100"/>
-            ) : (
-              <p className="text-gray-500 mt-4">Brochure not available.</p>
-            )}
-          </div>
-        )}
-      </div>
+     <div className="mt-6 w-full max-w-3xl bg-white shadow-md rounded-xl p-4">
+  {activeTab === "technical" ? (
+    <div className="flex flex-col items-center">
+      {/* <h3 className="text-lg font-bold text-red-600">Technical Data</h3> */}
+      {product.technical ? (
+        <Image
+          src={product.technical}
+          alt="Technical Sheet"
+          width={600}
+          height={400}
+          className="rounded-lg mt-4"
+        />
+      ) : (
+        <p className="text-gray-500 mt-4">No technical data available for this product.</p>
+      )}
+    </div>
+  ) : (
+    <div className="flex flex-col items-center p-4">
+      <h3 className="text-lg font-bold text-red-600 p-2">
+        Scan QR to Download Brochure
+      </h3>
+      {product.brochure ? (
+        <img src={product.brochure} className="w-100 h-100" />
+      ) : (
+        <p className="text-gray-500 mt-4">Brochure not available.</p>
+      )}
+    </div>
+  )}
+</div>
+
     </div>
   );
 }

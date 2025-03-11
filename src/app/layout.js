@@ -1,5 +1,5 @@
 import { Geist, Geist_Mono } from "next/font/google";
-import Script from "next/script"; // Import next/script
+import Script from "next/script"; 
 import "./globals.css";
 
 const geistSans = Geist({
