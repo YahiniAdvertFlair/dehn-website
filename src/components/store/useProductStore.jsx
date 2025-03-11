@@ -47,7 +47,7 @@ const initialProducts = [
     title: "DEHNrecord SD CPMS",
     description: "Advanced cathodic protection management system for real-time monitoring, corrosion prevention, and asset longevity.",
     image: "/assets/CPMS.png",
-    modelSrc: "/assets/CPMS_01.glb",
+    modelSrc: `${S3_BASE_URL}CPMS_01.glb`,
     arLink: "https://beta.portfolio.advflr.com/turnaround/client/dehn/CPMS_01",
     "brochure": "/CPMS/CPMS_brochure.png",
     applications: [
@@ -107,7 +107,7 @@ const initialProducts = [
     title: "DEHNrecord SD PESS",
     description: "Power quality meters for accurate monitoring, analysis, and optimization of power systems.",
     image: "/assets/pess.png",
-    modelSrc: "/assets/PESS.glb",
+    modelSrc:`${S3_BASE_URL}PESS.glb`,
     arLink: "https://beta.portfolio.advflr.com/turnaround/client/dehn/PESS",
     brochure: "/PESS/PESS_brochure.png",
     benefitVideo: "/PESS/PESS.mp4",
@@ -185,7 +185,7 @@ const initialProducts = [
     title: "DEHNvenCI",
     description: "Advanced single-pole lightning current and surge arrester with an integrated backup fuse, ensuring superior protection.",
     image: "/assets/dehnvenci.png",
-    modelSrc: "/assets/DEHNvenCI.glb",
+    modelSrc: `${S3_BASE_URL}DEHNcenCI.glb`,
     arLink: "https://beta.portfolio.advflr.com/turnaround/client/dehn/DEHNvenCI",
     brochure: "/DEHNVenci/general_QR.png",
     technical: "/DEHNVenci/venci_technical_sheet.jpg",
@@ -250,7 +250,7 @@ const initialProducts = [
     "brochure": "/DEHNguard/DEHNguard_QR.webp",
     "technical": "/DEHNguard/DEHNguard_technical.webp",
     "benefitVideo": "/DEHNguard/DEHNguard.mp4",
-    "modelSrc": "/assets/DEHNguard.glb",
+    "modelSrc": `${S3_BASE_URL}DEHNguard.glb`,
     arLink: "https://beta.portfolio.advflr.com/turnaround/client/dehn/DEHNguard",
     
     "hotspots": [
@@ -314,7 +314,7 @@ const initialProducts = [
     image: "/assets/EXFS_1.png",
 
     "brochure": "/EXFS/EXFS_QR.png",
-    "modelSrc": "/assets/EXFS_1.glb",
+    "modelSrc": `${S3_BASE_URL}EXFS_1.glb`,
     arLink: "https://beta.portfolio.advflr.com/turnaround/client/dehn/EXFS_1",
     
     "technical": "/EXFS/EXFS_100_technical.webp",
@@ -378,7 +378,7 @@ const initialProducts = [
     image: "/assets/EXFS_2.png",
 
     "brochure": "/EXFS/EXFS_QR.png",
-    "modelSrc": "/assets/EXFS_2.glb",
+    "modelSrc": `${S3_BASE_URL}EXFS_2.glb`,
     "technical": "/EXFS/EXFS_100_KU_technical.webp",
     arLink: "https://beta.portfolio.advflr.com/turnaround/client/dehn/EXFS_2",
     "hotspots": [
