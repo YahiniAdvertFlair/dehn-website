@@ -39,9 +39,9 @@ export default function ProductDetails() {
   if (!product) return <p className="text-center">Loading...</p>;
 
   return (
-    <div className={`min-h-screen flex flex-col items-center justify-center ${isFullScreen ? "fixed inset-0 bg-white z-50" : ""}`}>
+    <div className={`min-h-screen flex flex-col items-center justify-center px-4 md:px-10 ${isFullScreen ? "fixed inset-0 bg-white z-50" : ""}`}>
      
-      <header className="absolute top-0 left-0 w-full flex items-center justify-start border-b p-4 border-gray-500/10">
+      <header className="absolute top-0 left-0 w-full flex items-center justify-start border-b p-2 md:p-4 border-gray-500/10">
       <Link href="/" passHref>
     <Image
       src="/assets/dehn-logo.png"
@@ -52,9 +52,9 @@ export default function ProductDetails() {
     />
   </Link>      </header>
       
-      <div className="text-center max-w-3xl mx-auto mt-6">
-        <h1 className="text-4xl md:text-5xl font-bold text-dehn-red">{product.title}</h1>
-        <p className="text-gray-600 mt-2 text-md">{product.description}</p>
+      <div className="text-center max-w-3xl mx-auto md:mt-6 mt-12">
+        <h1 className="text-xl md:text-5xl font-bold text-dehn-red">{product.title}</h1>
+        <p className="text-gray-600 mt-2 md:text-md text-xs">{product.description}</p>
       </div>
 
       {paramId == "6" && (
@@ -82,10 +82,10 @@ export default function ProductDetails() {
       >
         <ProductModelViewer
           modelPath={product.modelSrc}
-          size={isFullScreen ? "large" : "small"} // ✅ Adjust size dynamically
+          size={isFullScreen ? "large" : "small"} 
         />
 
-        {/* ✅ Hide AR Button in Fullscreen */}
+       
         <div className="absolute right-10 top-1/4 flex flex-col space-y-4">
           <button
             onClick={() => setActiveMode("360")}
