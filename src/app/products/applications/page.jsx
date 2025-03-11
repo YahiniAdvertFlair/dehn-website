@@ -12,10 +12,8 @@ export default function ApplicationPage() {
 
   const [selectedApp, setSelectedApp] = useState(applications[0]);
 
-  // Track hovered dot for tooltip effect
   const [hoveredApp, setHoveredApp] = useState(null);
 
-  // Ensure the first application is selected when the product changes
   useEffect(() => {
     if (applications.length > 0) {
       setSelectedApp(applications[0]);

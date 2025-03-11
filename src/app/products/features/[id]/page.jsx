@@ -57,7 +57,7 @@ export default function ProductFeatures() {
 
       <div className="text-center max-w-3xl mx-auto mt-26">
         <h1 className="text-4xl md:text-5xl font-bold text-dehn-red">Interactive Features</h1>
-        <p className="text-gray-600 mt-2 text-md">
+        <p className="text-gray-600 mt-2 text-md mb-2">
           Unlock real-time monitoring, intelligent diagnostics, and seamless system integration for enhanced surge protection and performance.
         </p>
       </div>

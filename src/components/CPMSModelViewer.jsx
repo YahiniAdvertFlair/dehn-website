@@ -105,7 +105,6 @@ export default function CPMSModelViewer({ modelPath, setActiveFeature, activeFea
           }}
         >
           <img src="/assets/arrow.png" alt="back-icon" className="w-5 h-5" />
-          {/* <span>Back to model</span> */}
         </button>
       )}
 

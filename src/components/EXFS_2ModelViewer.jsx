@@ -27,7 +27,7 @@ export default function EXFS_2ModelViewer({ modelPath, setActiveFeature, activeF
         { id: 3, name: "Low Sparkover Voltage", text: "📉 Ensures reliable equipotential bonding (≤ 1.25 kV)",hotspotPosition: { top: "50%", left: "88%" }, image: "/EXFS/EXFS_2.png" },
         { id: 4, name: "ATEX & IECEx Certified", text: "✅ Approved for Ex Zone 1 (Gas) & Zone 21 (Dust)", hotspotPosition: { top: "65%", left: "77%" }, image: "/EXFS/EXFS_2.png" },
         { id: 5, name: "Rugged and Waterproof", text: "IP67-rated for harsh environments",  hotspotPosition: { top: "85%", left: "75%" }, image: "/EXFS/EXFS_2.png" },
-        { id: 6, name: "Versatile Installation", video: "/EXFS/EXFS_2_feature.webp", hotspotPosition: { top: "95%", left: "82%" }, image: "/EXFS/EXFS_2.png" }
+        { id: 6, name: "Versatile Installation", video: "/EXFS/EXFS_2_feature.webp", hotspotPosition: { top: "90%", left: "82%" }, image: "/EXFS/EXFS_2.png" }
       ];
 
   return (

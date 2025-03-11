@@ -1,12 +1,14 @@
 import { create } from "zustand";
 
+const S3_BASE_URL = "https://d3do0z2iitg65g.cloudfront.net/outputs/";
+
 const initialProducts = [
   {
     id: 1,
     title: "DEHNrecord SD EPMS",
     description: "Advance solution for precise, reliable, and efficient grounding measurements.",
     image: "/assets/EPMS.png",
-    modelSrc: "/assets/EPMS.glb",
+    modelSrc: `${S3_BASE_URL}EPMS.glb`,
     "brochure": "/EPMS/EPMS_brochure.png",
 
     arLink: "https://beta.portfolio.advflr.com/turnaround/client/dehn/EPMS",
@@ -111,7 +113,7 @@ const initialProducts = [
     benefitVideo: "/PESS/PESS.mp4",
     applications: [
       { "name": "Oil & Gas", "image": "/PESS/oil&gas.webp" },
-      { "name": "EV Station", "image": "/PESS/Commercial.webp" },
+      { "name": "EV Station", "image": "/PESS/commercial.webp" },
       { "name": "Substations", "image": "/PESS/Substation.webp" },
       {
         "name": "Commercial Buildings",
@@ -189,7 +191,7 @@ const initialProducts = [
     technical: "/DEHNVenci/venci_technical_sheet.jpg",
     applications: [
       { name: "Oil & Gas Facilities", image: "/DEHNVenci/oil&gas.jpg" },
-      { name: "Commercial Buildings", image: "/PESS/Commercial.webp" },
+      { name: "Commercial Buildings", image: "/PESS/commercial.webp" },
       {
         name: "Manufacturing Plants",
         image: "/DEHNVenci/manufacturing_plants.jpg"
@@ -199,7 +201,7 @@ const initialProducts = [
         image: "/DEHNVenci/renewable.jpeg"
       },
       { name: "Railway & Metros", image: "/DEHNVenci/metro.jpeg" },
-      { name: "Airports", image: "/DEHNVenci/airport.jpg" }
+      { name: "Airports", image: "/DEHNVenci/Airport.jpg" }
     ], 
     "hotspots": [
       {
@@ -297,7 +299,7 @@ const initialProducts = [
     ],
     "applications": [
       { "name": "Industrial Buildings", "image": "/PESS/oil&gas.webp" },
-      { "name": "Commercial Buildings", "image": "/PESS/Commercial.webp" },
+      { "name": "Commercial Buildings", "image": "/PESS/commercial.webp" },
       { "name": "Renewable Energy Systems", "image": "/PESS/Substation.webp" },
       { "name": "Railway & Metros", "image": "/PESS/commercial_building.webp" },
       { "name": "Oil & Gas Industry", "image": "/PESS/Industrial.webp" },
@@ -460,7 +462,6 @@ const useProductStore = create((set) => ({
   products: initialProducts,
   currentIndex: 0,
 
-  // ✅ Fix: These should return values, not functions
   getProductById: (id) => initialProducts.find((product) => product.id === id),
 
   getAllProducts: () => initialProducts,
