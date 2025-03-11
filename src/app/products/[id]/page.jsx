@@ -6,21 +6,21 @@ import Image from "next/image";
 import ProductModelViewer from "@/components/ProductModelViewer";
 import { QRCodeCanvas } from "qrcode.react";
 import DelveDeeperButton from "@/components/DelveDeeperButton";
+import Link from "next/link";
 
 export default function ProductDetails() {
   const { id: paramId } = useParams();
   const router = useRouter();
   const { getProductById } = useProductStore();
   const [product, setProduct] = useState(null);
-  const [activeVariant, setActiveVariant] = useState(Number(paramId)); 
+  const [activeVariant, setActiveVariant] = useState(Number(paramId));
   const [isFullScreen, setIsFullScreen] = useState(false);
   const [activeMode, setActiveMode] = useState("360");
   const [showArModal, setShowArModal] = useState(false);
   const modelRef = useRef(null);
-  const [isScrollingUp, setIsScrollingUp] = useState(false); 
 
   useEffect(() => {
-    const fetchedProduct = getProductById(activeVariant); 
+    const fetchedProduct = getProductById(activeVariant);
     setProduct(fetchedProduct);
   }, [activeVariant]);
 
@@ -42,20 +42,21 @@ export default function ProductDetails() {
     <div className={`min-h-screen flex flex-col items-center justify-center ${isFullScreen ? "fixed inset-0 bg-white z-50" : ""}`}>
      
       <header className="absolute top-0 left-0 w-full flex items-center justify-start border-b p-4 border-gray-500/10">
-     <Image src="/assets/dehn-logo.png" alt="DEHN Logo" width={140} height={40} />
-      </header>
+      <Link href="/" passHref>
+    <Image
+      src="/assets/dehn-logo.png"
+      alt="DEHN Logo"
+      width={140}
+      height={40}
+      className="cursor-pointer"
+    />
+  </Link>      </header>
       
-
       <div className="text-center max-w-3xl mx-auto mt-6">
-      <div className="text-center max-w-3xl mx-auto mt-6 flex items-center justify-center">
         <h1 className="text-4xl md:text-5xl font-bold text-dehn-red">{product.title}</h1>
-    
-        </div>
         <p className="text-gray-600 mt-2 text-md">{product.description}</p>
-       
       </div>
-    
-  
+
       {paramId == "6" && (
         <div className="flex space-x-4 mt-4">
           <button
@@ -68,39 +69,57 @@ export default function ProductDetails() {
             className={`px-2 py-2 rounded-full text-sm font-bold transition ${activeVariant === 7 ? " border border-dehn-red " : "border border-gray-500 text-dehn-red opacity-50"}`}
             onClick={() => setActiveVariant(7)}
           >
-<img src="/EXFS/EXFS_2.png" alt="" className="w-5 h-5 object-cover" />        
-  </button>
+            <img src="/EXFS/EXFS_2.png" alt="" className="w-5 h-5 object-cover" />
+          </button>
         </div>
       )}
 
-     
-      <div ref={modelRef} className={`relative w-full flex items-center justify-center bg-transparent ${isFullScreen ? "h-screen bg-white" : ""}`}>
-        <ProductModelViewer modelPath={product.modelSrc} />
+      {/* ✅ Model Viewer with Fullscreen Adjustments */}
+      <div
+        ref={modelRef}
+        className={`relative flex items-center justify-center bg-transparent ${
+          isFullScreen ? "h-screen w-screen bg-white" : "w-full"
+        }`}
+      >
+        <ProductModelViewer
+          modelPath={product.modelSrc}
+          size={isFullScreen ? "large" : "small"} // ✅ Adjust size dynamically
+        />
 
+        {/* ✅ Hide AR Button in Fullscreen */}
         <div className="absolute right-10 top-1/4 flex flex-col space-y-4">
           <button
             onClick={() => setActiveMode("360")}
-            className={`p-2 rounded-full shadow-md transition flex items-center justify-center w-10 h-10 cursor-pointer ${activeMode === "360" ? "bg-dehn-eerieblack text-white" : "bg-dehn-eerieblack hover:bg-gray-300"}`}
+            className={`p-2 rounded-full shadow-md transition flex items-center justify-center w-10 h-10 cursor-pointer ${
+              activeMode === "360" ? "bg-dehn-eerieblack text-white" : "bg-dehn-eerieblack hover:bg-gray-300"
+            }`}
           >
             <img src="/assets/360.png" alt="360°" className="w-5 h-5" />
           </button>
 
           <button
             onClick={toggleFullScreen}
-            className={`p-2 rounded-full shadow-md transition flex items-center justify-center w-10 h-10 cursor-pointer ${activeMode === "fullscreen" ? "bg-gray-500 text-white" : "bg-white hover:bg-gray-300"}`}
+            className={`p-2 rounded-full shadow-md transition flex items-center justify-center w-10 h-10 cursor-pointer ${
+              activeMode === "fullscreen" ? "bg-gray-500 text-white" : "bg-white hover:bg-gray-300"
+            }`}
           >
             <img src="/assets/full-screen.png" alt="Full-Screen" className="w-5 h-5" />
           </button>
 
-          <button
-            onClick={() => setShowArModal(true)}
-            className={`p-2 rounded-full shadow-md transition flex items-center justify-center w-10 h-10 cursor-pointer ${activeMode === "ar" ? "bg-gray-50 text-white" : "bg-white hover:bg-gray-300"}`}
-          >
-            <img src="/assets/AR.png" alt="AR Mode" className="w-5 h-5" />
-          </button>
+          {!isFullScreen && (
+            <button
+              onClick={() => setShowArModal(true)}
+              className={`p-2 rounded-full shadow-md transition flex items-center justify-center w-10 h-10 cursor-pointer ${
+                activeMode === "ar" ? "bg-gray-50 text-white" : "bg-white hover:bg-gray-300"
+              }`}
+            >
+              <img src="/assets/AR.png" alt="AR Mode" className="w-5 h-5" />
+            </button>
+          )}
         </div>
       </div>
 
+      {/* ✅ AR Modal */}
       {showArModal && (
         <div className="fixed inset-0 bg-gray-400/70 bg-opacity-50 flex items-center justify-center">
           <div className="bg-white p-6 rounded-lg shadow-lg w-80 text-center relative">

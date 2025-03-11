@@ -89,7 +89,7 @@ export default function ApplicationPage() {
             </div>
 
               {hoveredApp?.name === app.name && (
-                <div className="absolute right-10 px-3 py-1.5 bg-white text-gray-800 text-sm font-bold shadow-md rounded-lg transition-opacity duration-300">
+                <div className="absolute right-10 px-3 py-1.5 bg-white text-gray-800 text-sm font-bold shadow-md rounded-lg transition-opacity duration-300 whitespace-nowrap">
                   {app.name}
                 </div>
               )}

@@ -14,6 +14,7 @@ import RecommendedProducts from "../../recommended/page";
 import DEHNguardModelViewer from "@/components/DEHNguardModelViewer";
 import EXFS_1ModelViewer from "@/components/EXFS_1ModelViewer";
 import EXFS_2ModelViewer from "@/components/EXFS_2ModelViewer";
+import Link from "next/link";
 
 export default function ProductFeatures() {
   const { id: paramId } = useParams(); 
@@ -52,8 +53,15 @@ export default function ProductFeatures() {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center  relative">
       <header className="fixed top-0 left-0 w-full z-50 flex items-center p-4">
-        <Image src="/assets/dehn-logo.png" alt="DEHN Logo" width={140} height={40} />
-      </header>
+      <Link href="/" passHref>
+    <Image
+      src="/assets/dehn-logo.png"
+      alt="DEHN Logo"
+      width={140}
+      height={40}
+      className="cursor-pointer"
+    />
+  </Link>            </header>
 
       <div className="text-center max-w-3xl mx-auto mt-26">
         <h1 className="text-4xl md:text-5xl font-bold text-dehn-red">Interactive Features</h1>
