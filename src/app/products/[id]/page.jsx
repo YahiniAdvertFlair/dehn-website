@@ -114,11 +114,11 @@ export default function ProductDetails() {
           {!isFullScreen && (
             <button
               onClick={() => setShowArModal(true)}
-              className={`p-2 rounded-full shadow-md transition  items-center justify-center w-10 h-10 cursor-pointer hidden md:block ${
+              className={`p-2 rounded-full shadow-md transition md:flex items-center justify-center w-10 h-10 cursor-pointer hidden ${
                 activeMode === "ar" ? "bg-gray-50 text-white" : "bg-white hover:bg-gray-300"
               }`}
             >
-              <img src="/assets/AR.png" alt="AR Mode" className="w-5 h-5" />
+              <img src="/assets/AR.png" alt="AR Mode" className="w-5 h-5 " />
             </button>
           )}
         </div>
