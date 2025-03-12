@@ -66,7 +66,7 @@ export default function ProductFeatures() {
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center relative">
-      <header className="fixed top-0 left-0 w-full z-50 flex items-center p-4">
+      <header className="fixed top-0 left-0 w-full z-50 flex items-center p-4 border-b border-gray-200 bg-white">
         <Link href="/" passHref>
           <Image
             src="/assets/dehn-logo.png"
