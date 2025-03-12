@@ -8,10 +8,10 @@ const initialProducts = [
     title: "DEHNrecord SD EPMS",
     description: "Advanced solution for precise, reliable, and efficient grounding measurements.",
     image: "/assets/EPMS.png",
-    modelSrc:'/assets/EPMS.glb',
+    modelSrc:`${S3_BASE_URL}EPMS_01.glb`,
     "brochure": "/EPMS/EPMS_brochure.png",
 
-    arLink: "https://beta.portfolio.advflr.com/turnaround/client/dehn/EPMS",
+    arLink: "https://beta.portfolio.advflr.com/turnaround/client/dehn/EPMS_01",
     technical: "/EPMS/EPMS_technical_sheet.png",
     "benefits": [
       { "x": 20, "y": 15, "label": "One-touch IoT platform.","image":"/assets/EPMS.png"},
