@@ -37,17 +37,14 @@ export default function Home() {
               <ModelViewer modelPath={product.modelSrc} />
             </div>
 
-            {/* Product Title */}
             <h3 className="text-lg sm:text-xl font-bold text-dehn-red mt-4">
               {product.title}
             </h3>
 
-            {/* Product Description */}
             <p className="text-dehn-eerieblack text-xs sm:text-sm mt-1">
               {product.description}
             </p>
 
-            {/* Button */}
             <div className="flex items-end justify-end mt-2">
               <button className="flex items-center justify-center border border-dehn-red rounded-full text-dehn-red hover:bg-dehn-red hover:text-white transition w-6 h-6">
                 →

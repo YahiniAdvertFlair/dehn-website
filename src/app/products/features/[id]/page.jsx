@@ -24,11 +24,10 @@ export default function ProductFeatures() {
   const [activeFeature, setActiveFeature] = useState(null);
   const [isVideoActive, setIsVideoActive] = useState(false);
   const [forceReload, setForceReload] = useState(false); 
-  const [scrollStep, setScrollStep] = useState(0); // ✅ Track click count
+  const [scrollStep, setScrollStep] = useState(0); 
   
   const router = useRouter();
 
-  // ✅ Create references for sections
   const applicationRef = useRef(null);
   const benefitsRef = useRef(null);
   const additionalRef = useRef(null);
@@ -51,7 +50,6 @@ export default function ProductFeatures() {
     }
   }, [isVideoActive, activeFeature]);
 
-  // ✅ Function to handle scrolling
   const handleScrollToSection = () => {
     if (scrollStep === 0 && applicationRef.current) {
       applicationRef.current.scrollIntoView({ behavior: "smooth" });
@@ -61,7 +59,6 @@ export default function ProductFeatures() {
       additionalRef.current.scrollIntoView({ behavior: "smooth" });
     }
 
-    // Cycle through the steps (0 → 1 → 2 → reset to 0)
     setScrollStep((prevStep) => (prevStep + 1) % 3);
   };
 
@@ -80,10 +77,19 @@ export default function ProductFeatures() {
           />
         </Link>            
       </header>
+      <nav className="text-sm text-gray-500 flex space-x-2 absolute left-20 top-25">
+    <Link href="/" className="hover:text-red-700 hover:underline">Home</Link>
+    <span> &gt; </span>
+    <Link href={`/products/${id}`} className="hover:text-red-700 hover:underline">{product.title}</Link>
+   
+    <span> &gt; </span>
+ <span className="text-dehn-red font-medium">Features</span>
+    
+  </nav>
 
       <div className="text-center max-w-3xl mx-auto mt-26">
         <h1 className="text-4xl md:text-5xl font-bold text-dehn-red">Interactive Features</h1>
-        <p className="text-gray-600 mt-2 text-md mb-2">
+        <p className="text-gray-600 mt-2 text-xs sm:text-sm md:text-md lg:text-md mb-2">
           Unlock real-time monitoring, intelligent diagnostics, and seamless system integration for enhanced surge protection and performance.
         </p>
       </div>

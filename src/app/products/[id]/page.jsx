@@ -39,9 +39,9 @@ export default function ProductDetails() {
   if (!product) return <p className="text-center">Loading...</p>;
 
   return (
-    <div className={`min-h-screen flex flex-col items-center justify-center px-4 md:px-10 ${isFullScreen ? "fixed inset-0 bg-white z-50" : ""}`}>
+    <div className={`min-h-screen flex flex-col items-center justify-center  md:px-10 ${isFullScreen ? "fixed inset-0 bg-white z-50" : ""}`}>
      
-      <header className="absolute top-0 left-0 w-full flex items-center justify-start border-b p-2 md:p-4 border-gray-500/10">
+      <header className="absolute top-0 left-0 w-full flex items-center justify-start border-b p-4 md:p-4 border-gray-500/10">
       <Link href="/" passHref>
     <Image
       src="/assets/dehn-logo.png"
@@ -51,8 +51,14 @@ export default function ProductDetails() {
       className="cursor-pointer"
     />
   </Link>      </header>
+
+  <nav className="text-sm text-gray-500 flex space-x-2 absolute left-20 top-25">
+    <Link href="/" className="hover:text-dehn-red hover:underline">Home </Link>
+    <span> &gt; </span>
+    <span className="text-dehn-red font-medium">{product.title}</span>
+  </nav>
       
-      <div className="text-center max-w-3xl mx-auto md:mt-6 mt-12">
+      <div className="text-center max-w-3xl mx-auto md:mt-6 ">
         <h1 className="text-xl md:text-5xl font-bold text-dehn-red">{product.title}</h1>
         <p className="text-gray-600 mt-2 md:text-md text-xs">{product.description}</p>
       </div>
@@ -86,7 +92,7 @@ export default function ProductDetails() {
         />
 
        
-        <div className="absolute right-10 top-1/4 flex flex-col space-y-4">
+        <div className="absolute md:right-10 md:top-1/4  right-1 top-4 flex flex-col space-y-4 ">
           <button
             onClick={() => setActiveMode("360")}
             className={`p-2 rounded-full shadow-md transition flex items-center justify-center w-10 h-10 cursor-pointer ${
@@ -108,7 +114,7 @@ export default function ProductDetails() {
           {!isFullScreen && (
             <button
               onClick={() => setShowArModal(true)}
-              className={`p-2 rounded-full shadow-md transition flex items-center justify-center w-10 h-10 cursor-pointer ${
+              className={`p-2 rounded-full shadow-md transition  items-center justify-center w-10 h-10 cursor-pointer hidden md:block ${
                 activeMode === "ar" ? "bg-gray-50 text-white" : "bg-white hover:bg-gray-300"
               }`}
             >
@@ -118,7 +124,6 @@ export default function ProductDetails() {
         </div>
       </div>
 
-      {/* ✅ AR Modal */}
       {showArModal && (
         <div className="fixed inset-0 bg-gray-400/70 bg-opacity-50 flex items-center justify-center">
           <div className="bg-white p-6 rounded-lg shadow-lg w-80 text-center relative">
@@ -136,7 +141,7 @@ export default function ProductDetails() {
         </div>
       )}
 
-      <div className="absolute left-10 top-1/2 -rotate-90 text-gray-500 text-sm flex gap-2">
+      <div className="absolute left-10 top-1/2 -rotate-90 text-gray-500 text-sm md:flex gap-2 hidden">
         <img src="/assets/360.png" alt="360°" className="w-5 h-5 bg-gray-500 rounded-3xl" />
         360° DEGREE ROTATION ENABLED
       </div>
@@ -148,11 +153,11 @@ export default function ProductDetails() {
         >
           <img src="/assets/arrow.png" alt="Back" className="w-5 h-5" />
         </button>
-        <span className="text-sm text-dehn-red font-bold">Back to Home</span>
+        <span className="text-sm text-dehn-red font-bold hidden md:block">Back to Home</span>
       </div>
 
       <div className="fixed bottom-10 right-20 flex flex-row items-center space-x-2">
-        <span className="text-sm text-dehn-red font-bold">Delve Deeper</span>
+        <span className="text-sm text-dehn-red font-bold hidden md:block">Delve Deeper</span>
         <DelveDeeperButton id={activeVariant} />
       </div>
     </div>
