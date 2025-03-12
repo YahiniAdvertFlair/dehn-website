@@ -8,7 +8,7 @@ const initialProducts = [
     title: "DEHNrecord SD EPMS",
     description: "Advanced solution for precise, reliable, and efficient grounding measurements.",
     image: "/assets/EPMS.png",
-    modelSrc:'/assets/EPMs.glb',
+    modelSrc:'/assets/EPMS.glb',
     "brochure": "/EPMS/EPMS_brochure.png",
 
     arLink: "https://beta.portfolio.advflr.com/turnaround/client/dehn/EPMS",
