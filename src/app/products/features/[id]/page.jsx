@@ -51,16 +51,28 @@ export default function ProductFeatures() {
   }, [isVideoActive, activeFeature]);
 
   const handleScrollToSection = () => {
-    if (scrollStep === 0 && applicationRef.current) {
-      applicationRef.current.scrollIntoView({ behavior: "smooth" });
-    } else if (scrollStep === 1 && benefitsRef.current) {
-      benefitsRef.current.scrollIntoView({ behavior: "smooth" });
-    } else if (scrollStep === 2 && additionalRef.current) {
-      additionalRef.current.scrollIntoView({ behavior: "smooth" });
+    const headerHeight = 60; 
+  
+    let targetRef;
+    if (scrollStep === 0) {
+      targetRef = applicationRef;
+    } else if (scrollStep === 1) {
+      targetRef = benefitsRef;
+    } else if (scrollStep === 2) {
+      targetRef = additionalRef;
     }
-
+  
+    if (targetRef?.current) {
+      const targetPosition = targetRef.current.getBoundingClientRect().top + window.scrollY;
+      window.scrollTo({
+        top: targetPosition - headerHeight, 
+        behavior: "smooth"
+      });
+    }
+  
     setScrollStep((prevStep) => (prevStep + 1) % 3);
   };
+  
 
   if (!product) return <p className="text-center">Loading...</p>;
 
@@ -87,7 +99,7 @@ export default function ProductFeatures() {
     
   </nav>
 
-      <div className="text-center max-w-3xl mx-auto mt-26">
+      <div className="text-center max-w-3xl mx-auto mt-30">
         <h1 className="text-4xl md:text-5xl font-bold text-dehn-red">Interactive Features</h1>
         <p className="text-gray-600 mt-2 text-xs sm:text-sm md:text-md lg:text-md mb-2">
           Unlock real-time monitoring, intelligent diagnostics, and seamless system integration for enhanced surge protection and performance.
@@ -98,8 +110,8 @@ export default function ProductFeatures() {
         className="relative flex items-center justify-center p-6 border border-gray-400 rounded-lg bg-cover bg-center bg-no-repeat "
         style={{
           minWidth: "56.25rem", 
-          minHeight: "30rem", 
-          height: "30rem", 
+          minHeight: "29rem", 
+          height: "29rem", 
           width: "auto",
           transition: "all 0.3s ease-in-out"
         }}
@@ -157,7 +169,7 @@ export default function ProductFeatures() {
         </button>
       </div>
 
-      <div ref={applicationRef}>
+      <div ref={applicationRef} >
         <ApplicationPage />
       </div>
       <div ref={benefitsRef}>
