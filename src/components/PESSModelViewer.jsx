@@ -14,12 +14,12 @@ export default function PESSModelViewer({ modelPath, setActiveFeature, activeFea
   }, [activeFeature]);
 
   const hotspots = [
-    { id: 1, name: "Earthquake Detection", url: "/PESS/PESS_Seimic(si).glb", position: "-0.150m 0.280m 0.010m", hotspotPosition: { top: "1%", left: "72%" }, image: "/EPMS/EPMS_1.png" },
-    { id: 2, name: "Overcurrent Protection", url: "/PESS/PESS_Current(A).glb", position: "0.140m 0.270m 0.015m", hotspotPosition: { top: "10%", left: "83%" }, image: "/EPMS/EPMS_1.png" },
-    { id: 3, name: "Earth Leakage", url: "/PESS/PESS_Leakage_Current.glb", position: "-0.130m 0.230m 0.100m", hotspotPosition: { top: "30%", left: "79%" }, image: "/EPMS/EPMS_3.png" },
-    { id: 4, name: "Under Voltage", url: "/PESS/PESS_Voltage.glb", position: "-0.140m 0.040m 0.010m", hotspotPosition: { top: "53%", left: "88%" }, image: "/EPMS/EPMS_4.png" },
-    { id: 5, name: "Over Voltage", url: "/PESS/PESS_Voltage.glb", position: "0.188m 0.165m 0.109m", hotspotPosition: { top: "68%", left: "78%" }, image: "/EPMS/EPMS_4.png" },
-    { id: 6, name: "Phase Loss", url: "/PESS/PESS_Voltage.glb", position: "0.180m 0.055m 0.014m", hotspotPosition: { top: "89%", left: "82%" }, image: "/EPMS/EPMS_4.png" }
+    { id: 1, name: "Earthquake Detection", url: "/PESS/PESS_Seimic(si).glb", position: "-0.150m 0.280m 0.010m", hotspotPosition: { top: "1%", left: "72%" }, image: "/assets/info.png" },
+    { id: 2, name: "Overcurrent Protection", url: "/PESS/PESS_Current(A).glb", position: "0.140m 0.270m 0.015m", hotspotPosition: { top: "10%", left: "83%" }, image: "/assets/info.png" },
+    { id: 3, name: "Earth Leakage", url: "/PESS/PESS_Leakage_Current.glb", position: "-0.130m 0.230m 0.100m", hotspotPosition: { top: "30%", left: "79%" }, image: "/assets/info.png" },
+    { id: 4, name: "Under Voltage", url: "/PESS/PESS_Voltage.glb", position: "-0.140m 0.040m 0.010m", hotspotPosition: { top: "53%", left: "88%" }, image: "/assets/info.png" },
+    { id: 5, name: "Over Voltage", url: "/PESS/PESS_Voltage.glb", position: "0.188m 0.165m 0.109m", hotspotPosition: { top: "68%", left: "78%" }, image: "/assets/info.png" },
+    { id: 6, name: "Phase Loss", url: "/PESS/PESS_Voltage.glb", position: "0.180m 0.055m 0.014m", hotspotPosition: { top: "89%", left: "82%" }, image: "/assets/info.png" }
   ];
 
   return (

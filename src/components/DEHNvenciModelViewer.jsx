@@ -22,11 +22,11 @@ export default function DEHNvenciModelViewer({ modelPath, setActiveFeature, acti
   }, [selectedFeature]);
 
   const hotspots = [
-        { id: 1, name: "Integrated Backup Fuse", video: "/DEHNVenci/integrated_backup_fuse.webp", position: "-0.0169m 0.1634m 0.0104m", hotspotPosition: { top: "8%", left: "75%" }, image: "/DEHNVenci/dehnvenci.png" },
-        { id: 2, name: "High Lightning Current Discharge Capacity", text: "Handles up to 25 kA (10/350 µs) Lightning Current", position: "0.0165m 0.1641m 0.0096m", hotspotPosition: { top: "23%", left: "86%" }, image: "/DEHNVenci/dehnvenci.png" },
-        { id: 3, name: "RADAX Flow Technology", text: "Extinguishes mains follow currents up to 100 kArms.", position: "-0.0167m 0.1100m 0.0351m",hotspotPosition: { top: "50%", left: "80%" }, image: "/DEHNVenci/dehnvenci.png" },
-        { id: 4, name: "Low Voltage Protection Level (≤ 1.5 kV)", text: "✅Keeps Voltage Levels Safe", position: "-0.0160m 0.0171m 0.0124m", hotspotPosition: { top: "72%", left: "85%" }, image: "/DEHNVenci/dehnvenci.png" },
-        { id: 5, name: "Green/Red Indicator for Fault Detection", text: "✅Visual Fault Indication for Quick Diagnosis", position: "0.0162m 0.0163m 0.0124m", hotspotPosition: { top: "86%", left: "74%" }, image: "/DEHNVenci/dehnvenci.png" }
+        { id: 1, name: "Integrated Backup Fuse", video: "/DEHNVenci/integrated_backup_fuse.webp", position: "-0.0169m 0.1634m 0.0104m", hotspotPosition: { top: "8%", left: "75%" }, image: "/assets/info.png" },
+        { id: 2, name: "High Lightning Current Discharge Capacity", text: "Handles up to 25 kA (10/350 µs) Lightning Current", position: "0.0165m 0.1641m 0.0096m", hotspotPosition: { top: "23%", left: "86%" }, image: "/assets/info.png" },
+        { id: 3, name: "RADAX Flow Technology", text: "Extinguishes mains follow currents up to 100 kArms.", position: "-0.0167m 0.1100m 0.0351m",hotspotPosition: { top: "50%", left: "80%" }, image: "/assets/info.png" },
+        { id: 4, name: "Low Voltage Protection Level (≤ 1.5 kV)", text: "✅Keeps Voltage Levels Safe", position: "-0.0160m 0.0171m 0.0124m", hotspotPosition: { top: "72%", left: "85%" }, image: "/assets/info.png" },
+        { id: 5, name: "Green/Red Indicator for Fault Detection", text: "✅Visual Fault Indication for Quick Diagnosis", position: "0.0162m 0.0163m 0.0124m", hotspotPosition: { top: "86%", left: "74%" }, image: "/assets/info.png" }
       ];
 
   return (

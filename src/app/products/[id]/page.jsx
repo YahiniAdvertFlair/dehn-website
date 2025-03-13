@@ -92,36 +92,54 @@ export default function ProductDetails() {
         />
 
        
-        <div className="absolute md:right-10 md:top-1/4  right-1 top-4 flex flex-col space-y-4 ">
-          <button
-            onClick={() => setActiveMode("360")}
-            className={`p-2 rounded-full shadow-md transition flex items-center justify-center w-10 h-10 cursor-pointer ${
-              activeMode === "360" ? "bg-dehn-eerieblack text-white" : "bg-dehn-eerieblack hover:bg-gray-300"
-            }`}
-          >
-            <img src="/assets/360.png" alt="360°" className="w-5 h-5" />
-          </button>
+<div className="absolute md:right-10 md:top-1/4 right-1 top-4 flex flex-col space-y-4">
+  
+  <div className="relative group">
+    <button
+      onClick={() => setActiveMode("360")}
+      className={`p-2 rounded-full shadow-md transition flex items-center justify-center w-10 h-10 cursor-pointer ${
+        activeMode === "360" ? "bg-dehn-eerieblack text-white" : "bg-dehn-eerieblack hover:bg-gray-300"
+      }`}
+    >
+      <img src="/assets/360.png" alt="360°" className="w-5 h-5" />
+    </button>
+    <span className="absolute left-full ml-2 top-1/2 -translate-y-1/2 bg-dehn-textgrey text-white text-xs px-2 py-1 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity">
+      360° View
+    </span>
+  </div>
 
-          <button
-            onClick={toggleFullScreen}
-            className={`p-2 rounded-full shadow-md transition flex items-center justify-center w-10 h-10 cursor-pointer ${
-              activeMode === "fullscreen" ? "bg-gray-500 text-white" : "bg-white hover:bg-gray-300"
-            }`}
-          >
-            <img src="/assets/full-screen.png" alt="Full-Screen" className="w-5 h-5" />
-          </button>
+  <div className="relative group">
+    <button
+      onClick={toggleFullScreen}
+      className={`p-2 rounded-full shadow-md transition flex items-center justify-center w-10 h-10 cursor-pointer ${
+        activeMode === "fullscreen" ? "bg-gray-500 text-white" : "bg-white hover:bg-gray-300"
+      }`}
+    >
+      <img src="/assets/full-screen.png" alt="Full-Screen" className="w-5 h-5" />
+    </button>
+    <span className="absolute left-full ml-2 top-1/2 -translate-y-1/2 bg-dehn-textgrey text-white text-xs px-2 py-1 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity">
+      Fullscreen
+    </span>
+  </div>
 
-          {!isFullScreen && (
-            <button
-              onClick={() => setShowArModal(true)}
-              className={`p-2 rounded-full shadow-md transition md:flex items-center justify-center w-10 h-10 cursor-pointer hidden ${
-                activeMode === "ar" ? "bg-gray-50 text-white" : "bg-white hover:bg-gray-300"
-              }`}
-            >
-              <img src="/assets/AR.png" alt="AR Mode" className="w-5 h-5 " />
-            </button>
-          )}
-        </div>
+  {!isFullScreen && (
+    <div className="relative group">
+      <button
+        onClick={() => setShowArModal(true)}
+        className={`p-2 rounded-full shadow-md transition md:flex items-center justify-center w-10 h-10 cursor-pointer hidden ${
+          activeMode === "ar" ? "bg-gray-50 text-white" : "bg-white hover:bg-gray-300"
+        }`}
+      >
+        <img src="/assets/AR.png" alt="AR Mode" className="w-5 h-5" />
+      </button>
+      <span className="absolute left-full ml-2 top-1/2 -translate-y-1/2 bg-dehn-textgrey text-white text-xs px-2 py-1 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity">
+        View in AR
+      </span>
+    </div>
+  )}
+
+</div>
+
       </div>
 
       {showArModal && (
@@ -156,9 +174,12 @@ export default function ProductDetails() {
         <span className="text-sm text-dehn-red font-bold hidden md:block">Back to Home</span>
       </div>
 
-      <div className="fixed bottom-10 right-20 flex flex-row items-center space-x-2">
+      <div className="fixed bottom-10 right-20 flex flex-row items-center space-x-2 group">
         <span className="text-sm text-dehn-red font-bold hidden md:block">Delve Deeper</span>
         <DelveDeeperButton id={activeVariant} />
+        <span className="absolute -top-8 left-1/2 -translate-x-1/9 bg-dehn-textgrey text-white text-xs px-2 py-1 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+      Explore More
+    </span>
       </div>
     </div>
   );

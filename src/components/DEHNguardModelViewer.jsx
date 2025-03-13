@@ -31,12 +31,12 @@ export default function DEHNguardModelViewer({ modelPath, setActiveFeature, acti
   }, [isVideoActive]);
 
   const hotspots = [
-        { id: 1, name: "ACI Technology",videoText:"⚡Built-in switch/spark gap combination", video: "/DEHNguard/ACI_part_animation.mp4", position: "-0.034229252092449584m 0.09609835561690527m 0.01671331316461716m", hotspotPosition: { top: "1%", left: "72%" }, image: "/DEHNguard/dehnguard.png" },
-        { id: 2, name: "Status indication",videoText:"✅ Visual Fault Indication for Quick Diagnosis", video: "/DEHNguard/ACI_arc_fuse_current.mp4", position: "0.03299075453367157m 0.09595904160810245m 0.0168733273708101m", hotspotPosition: { top: "10%", left: "83%" }, image: "/DEHNguard/dehnguard.png" },
-        { id: 3, name: "Zero Leakage Current",videoText:"✅ Ensures safe and efficient operation", video: "/DEHNguard/current_dissipated_SPD.mp4", position: "-0.03497720896088569m 0.07384910615046268m 0.04418744728111765m",hotspotPosition: { top: "30%", left: "79%" }, image: "/DEHNguard/dehnguard.png" },
-        { id: 4, name: "High TOV Withstand(440V AC)", text: "⚡Handles temporary overvoltages effectively", position: "0.034446589678363275m 0.07452957860749204m 0.04370905489627286m", hotspotPosition: { top: "55%", left: "86%" }, image: "/DEHNguard/dehnguard.png" },
-        { id: 5, name: "Push-In Connection System", text: "🔌Quick and easy tool-free installation", position: "-0.034124522203320816m 0.012002792336987339m 0.019447603353213327m", hotspotPosition: { top: "70%", left: "78%" }, image: "/DEHNguard/dehnguard.png" },
-        { id: 6, name: "Vibration & Shock Tested", text: "🛡️Ensures durability in tough environments", position: "0.03479702838378839m 0.011463536687446332m 0.01931655630432m", hotspotPosition: { top: "89%", left: "80%" }, image: "/DEHNguard/dehnguard.png" }
+        { id: 1, name: "ACI Technology",videoText:"⚡Built-in switch/spark gap combination", video: "/DEHNguard/ACI_part_animation.mp4", position: "-0.034229252092449584m 0.09609835561690527m 0.01671331316461716m", hotspotPosition: { top: "1%", left: "72%" }, image: "/assets/info.png" },
+        { id: 2, name: "Status indication",videoText:"✅ Visual Fault Indication for Quick Diagnosis", video: "/DEHNguard/ACI_arc_fuse_current.mp4", position: "0.03299075453367157m 0.09595904160810245m 0.0168733273708101m", hotspotPosition: { top: "10%", left: "83%" }, image: "/assets/info.png" },
+        { id: 3, name: "Zero Leakage Current",videoText:"✅ Ensures safe and efficient operation", video: "/DEHNguard/current_dissipated_SPD.mp4", position: "-0.03497720896088569m 0.07384910615046268m 0.04418744728111765m",hotspotPosition: { top: "30%", left: "79%" }, image: "/assets/info.png" },
+        { id: 4, name: "High TOV Withstand(440V AC)", text: "⚡Handles temporary overvoltages effectively", position: "0.034446589678363275m 0.07452957860749204m 0.04370905489627286m", hotspotPosition: { top: "55%", left: "86%" }, image: "/assets/info.png" },
+        { id: 5, name: "Push-In Connection System", text: "🔌Quick and easy tool-free installation", position: "-0.034124522203320816m 0.012002792336987339m 0.019447603353213327m", hotspotPosition: { top: "70%", left: "78%" }, image: "/assets/info.png" },
+        { id: 6, name: "Vibration & Shock Tested", text: "🛡️Ensures durability in tough environments", position: "0.03479702838378839m 0.011463536687446332m 0.01931655630432m", hotspotPosition: { top: "89%", left: "80%" }, image: "/assets/info.png" }
       ];
 
   return (
@@ -140,7 +140,7 @@ export default function DEHNguardModelViewer({ modelPath, setActiveFeature, acti
             }
           }}
         >
-          <img src={hotspot.image} className="w-10 h-10 rounded-full border-1 border-dehn-red p-2" />
+          <img src={hotspot.image} className="w-8 h-8 rounded-full border-2 border-dehn-red p-1" />
         </button>
       ))}
         {selectedFeature && showFeatureDetails && (

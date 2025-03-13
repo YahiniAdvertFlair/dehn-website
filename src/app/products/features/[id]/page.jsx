@@ -159,15 +159,22 @@ export default function ProductFeatures() {
         <span className="text-sm text-dehn-red font-bold">Back to Product</span>
       </div>
 
-      <div className="fixed bottom-10 right-20 flex flex-row items-center space-x-2 ">
-        <span className="text-sm text-dehn-red font-bold">Delve Deeper</span>
-        <button
-          onClick={handleScrollToSection}
-          className="p-3 border border-dehn-red rounded-full text-dehn-red hover:bg-dehn-eerieblack hover:bg-gray-200 cursor-pointer"
-        >
-          <img src="/assets/delve-deeper.png" alt="Delve Deeper" className="w-5 h-5" />
-        </button>
-      </div>
+      <div className="fixed bottom-10 right-20 flex flex-row items-center space-x-2 group">
+  <span className="text-sm text-dehn-red font-bold">Delve Deeper</span>
+  
+  <button
+    onClick={handleScrollToSection}
+    className="p-3 border border-dehn-red rounded-full text-dehn-red hover:bg-dehn-eerieblack hover:bg-gray-200 cursor-pointer relative group"
+  >
+    <img src="/assets/delve-deeper.png" alt="Delve Deeper" className="w-5 h-5" />
+    
+    <span className="absolute -top-10 left-1/2 -translate-x-1/2 bg-dehn-textgrey text-white text-xs px-2 py-1 rounded-md opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+      Explore More
+    </span>
+  </button>
+</div>
+
+
 
       <div ref={applicationRef} >
         <ApplicationPage />

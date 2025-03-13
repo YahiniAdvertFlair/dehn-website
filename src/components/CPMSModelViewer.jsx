@@ -16,12 +16,12 @@ export default function CPMSModelViewer({ modelPath, setActiveFeature, activeFea
   }, [activeModel]);
 
   const hotspots = [
-    { id: 1, name: "AC Voltage Monitoring", image: "/CPMS/AC_voltage.webp", size: "w-10 h-10", position: { top: "5%", left: "83%" } },
-    { id: 2, name: "DC PSP ON/OFF Voltage Monitoring", image: "/CPMS/DC_PSP.webp", size: "w-10 h-8", position: { top: "25%", left: "78%" } },
-    { id: 3, name: "AC/DC Current Monitoring", image: "/CPMS/ACDC_current.webp", size: "w-12 h-12", position: { top: "40%", left: "87%" } },
-    { id: 4, name: "Wireless Connectivity via LoRa", image: "/CPMS/Internet.webp", size: "w-10 h-10", position: { top: "55%", left: "79%" } },
-    { id: 5, name: "Real-Time Data & History", image: "/CPMS/real_time.webp", size: "w-9 h-9", position: { top: "74%", left: "85%" } },
-    { id: 6, name: "Automated Alerts & Diagnostics", video: "/CPMS/CPMS Alert.mp4",image: "/CPMS/clapperboard.png", preview: "/CPMS/clapperboard.png", size: "w-9 h-9", position: { top: "85%", left: "75%" } } 
+    { id: 1, name: "AC Voltage Monitoring", image: "/CPMS/AC_voltage.webp",image2:"/assets/info.png", size: "w-10 h-10", position: { top: "5%", left: "83%" } },
+    { id: 2, name: "DC PSP ON/OFF Voltage Monitoring", image: "/CPMS/DC_PSP.webp", size: "w-10 h-8",image2:"/assets/info.png", position: { top: "25%", left: "78%" } },
+    { id: 3, name: "AC/DC Current Monitoring", image: "/CPMS/ACDC_current.webp", size: "w-12 h-12", image2:"/assets/info.png",position: { top: "40%", left: "87%" } },
+    { id: 4, name: "Wireless Connectivity via LoRa", image: "/CPMS/Internet.webp", size: "w-10 h-10",image2:"/assets/info.png", position: { top: "55%", left: "79%" } },
+    { id: 5, name: "Real-Time Data & History", image: "/CPMS/real_time.webp", size: "w-9 h-9",image2:"/assets/info.png", position: { top: "74%", left: "85%" } },
+    { id: 6, name: "Automated Alerts & Diagnostics", video: "/CPMS/CPMS Alert.mp4",image: "/CPMS/clapperboard.png",image2:"/CPMS/clapperboard.png", preview: "/CPMS/clapperboard.png", size: "w-9 h-9", position: { top: "85%", left: "75%" } } 
   ];
 
   return (
@@ -89,7 +89,7 @@ export default function CPMSModelViewer({ modelPath, setActiveFeature, activeFea
             />
           ) : (
             <img
-              src={hotspot.video ? hotspot.preview : hotspot.image} 
+              src={hotspot.video ? hotspot.preview : hotspot.image2} 
               alt={hotspot.name}
               className="w-8 h-8 rounded-full border-2 p-1 border-dehn-red"
             />
@@ -124,7 +124,7 @@ export default function CPMSModelViewer({ modelPath, setActiveFeature, activeFea
           }}
         >
            <div className="relative flex items-center justify-center bg-white rounded-full w-10 h-10 p-1 border-2 border-dehn-red">
-            <img src={selectedFeature.image} className="w-full h-full object-contain rounded-full" />
+            <img src={selectedFeature.image2} className="w-full h-full object-contain rounded-full" />
             <span className="absolute top-[-0.2rem] right-[-0.25rem] bg-white text-dehn-red text-[0.5em] border border-dehn-red font-bold rounded-full px-1 py-0">
               {selectedFeature.id}
             </span>

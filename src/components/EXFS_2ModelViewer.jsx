@@ -22,12 +22,12 @@ export default function EXFS_2ModelViewer({ modelPath, setActiveFeature, activeF
   }, [selectedFeature]);
 
   const hotspots = [
-        { id: 1, name: "Lighting Protection", text: "⚡Isolating spark gap for hazardous areas",  hotspotPosition: { top: "5%", left: "74%" }, image: "/EXFS/EXFS_2.png" },
-        { id: 2, name: "High Current Capacity", text: "⚡Withstands 100 kA (10/350 µs) lightning impulse current", hotspotPosition:  { top: "15%", left: "85%" }, image: "/EXFS/EXFS_2.png" },
-        { id: 3, name: "Low Sparkover Voltage", text: "📉 Ensures reliable equipotential bonding (≤ 1.25 kV)",hotspotPosition:{ top: "33%", left: "80%" }, image: "/EXFS/EXFS_2.png" },
-        { id: 4, name: "ATEX & IECEx Certified", text: "✅ Approved for Ex Zone 1 (Gas) & Zone 21 (Dust)", hotspotPosition: { top: "57%", left: "87%" }, image: "/EXFS/EXFS_2.png" },
-        { id: 5, name: "Rugged and Waterproof", text: "IP67-rated for harsh environments",  hotspotPosition:{ top: "73%", left: "78%" }, image: "/EXFS/EXFS_2.png" },
-        { id: 6, name: "Versatile Installation", video: "/EXFS/EXFS_2_feature.webp", hotspotPosition: { top: "92%", left: "81%" }, image: "/EXFS/EXFS_2.png" }
+        { id: 1, name: "Lighting Protection", text: "⚡Isolating spark gap for hazardous areas",  hotspotPosition: { top: "5%", left: "74%" }, image: "/assets/info.png" },
+        { id: 2, name: "High Current Capacity", text: "⚡Withstands 100 kA (10/350 µs) lightning impulse current", hotspotPosition:  { top: "15%", left: "85%" }, image: "/assets/info.png" },
+        { id: 3, name: "Low Sparkover Voltage", text: "📉 Ensures reliable equipotential bonding (≤ 1.25 kV)",hotspotPosition:{ top: "33%", left: "80%" }, image: "/assets/info.png" },
+        { id: 4, name: "ATEX & IECEx Certified", text: "✅ Approved for Ex Zone 1 (Gas) & Zone 21 (Dust)", hotspotPosition: { top: "57%", left: "87%" }, image: "/assets/info.png" },
+        { id: 5, name: "Rugged and Waterproof", text: "IP67-rated for harsh environments",  hotspotPosition:{ top: "73%", left: "78%" }, image: "/assets/info.png" },
+        { id: 6, name: "Versatile Installation", video: "/EXFS/EXFS_2_feature.webp", hotspotPosition: { top: "92%", left: "81%" }, image: "/assets/info.png" }
       ];
 
   return (
@@ -98,7 +98,7 @@ export default function EXFS_2ModelViewer({ modelPath, setActiveFeature, activeF
             }
           }}
         >
-          <img src={hotspot.image} className="w-8 h-8 rounded-full border-2 border-dehn-red" />
+          <img src={hotspot.image} className="w-8 h-8 rounded-full border-2 border-dehn-red p-1" />
         </button>
       ))}
         {selectedFeature && showFeatureDetails && (

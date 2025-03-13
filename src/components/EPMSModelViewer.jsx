@@ -19,10 +19,10 @@ export default function EPMSModelViewer({ modelPath, setActiveFeature, activeFea
   }, [selectedFeature]);
 
   const hotspots = [
-    { id: 1, name: "Earth Resistance Measurement", url: "/EPMS/EPMS_Earth_Resistance.glb", position: "-0.173m 0.299m 0.010m", hotspotPosition: { top: "10%", left: "75%" }, image: "/EPMS/EPMS_1.png" },
-    { id: 2, name: "Earth Integrity", url: "/EPMS/EPMS_Wire_connect.glb", position: "0.173m 0.295m 0.013m", hotspotPosition: { top: "25%", left: "86%" }, image: "/EPMS/EPMS_1.png" },
-    { id: 3, name: "Neutral-Earth Voltage", url: "/EPMS/EPMS_Earth_Neutral.glb", position: "-0.179m 0.220m 0.109m", hotspotPosition: { top: "50%", left: "80%" }, image: "/EPMS/EPMS_3.png" },
-    { id: 4, name: "Earth Leakage Current", url: "/EPMS/EPMS_Earth_Leak.glb", position: "-0.185m 0.036m 0.013m", hotspotPosition: { top: "70%", left: "86%" }, image: "/EPMS/EPMS_4.png" },
+    { id: 1, name: "Earth Resistance Measurement", url: "/EPMS/EPMS_Earth_Resistance.glb", position: "-0.173m 0.299m 0.010m", hotspotPosition: { top: "10%", left: "75%" }, image: "/assets/info.png" },
+    { id: 2, name: "Earth Integrity", url: "/EPMS/EPMS_Wire_connect.glb", position: "0.173m 0.295m 0.013m", hotspotPosition: { top: "25%", left: "86%" }, image: "/assets/info.png" },
+    { id: 3, name: "Neutral-Earth Voltage", url: "/EPMS/EPMS_Earth_Neutral.glb", position: "-0.179m 0.220m 0.109m", hotspotPosition: { top: "50%", left: "80%" }, image: "/assets/info.png" },
+    { id: 4, name: "Earth Leakage Current", url: "/EPMS/EPMS_Earth_Leak.glb", position: "-0.185m 0.036m 0.013m", hotspotPosition: { top: "70%", left: "86%" }, image: "/assets/info.png" },
     { id: 5, name: "Noise Filtering", url: "/EPMS/noise_filter.mp4", position: "0.186m 0.045m 0.014m", hotspotPosition: { top: "81%", left: "76%" }, image: "/CPMS/clapperboard.png" }
   ];
 
@@ -111,6 +111,7 @@ export default function EPMSModelViewer({ modelPath, setActiveFeature, activeFea
             }
           }}
         >
+          {/* <div className="w-8 h-8 rounded-full border-2 p-1 border-dehn-red bg-gray-800"> </div> */}
           <img src={hotspot.image} className="w-8 h-8 rounded-full border-2 p-1 border-dehn-red" />
         </button>
       ))}
