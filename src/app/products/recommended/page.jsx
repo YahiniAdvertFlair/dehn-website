@@ -12,7 +12,7 @@ export default function RecommendedProducts() {
   const recommendedProducts = products.filter((product) => product.id !== productId);
 
   return (
-    <div className="bg-[#ECEEEB] py-10 px-5 md:px-20 rounded-xl shadow-md w-full max-w-[100%] mx-auto z-50">
+    <div className="bg-[#ECEEEB] py-10 px-5 md:px-20 rounded-xl shadow-md w-full max-w-[100%] mx-auto z-99">
       <h2 className="text-red-600 text-3xl md:text-4xl font-bold ">
         Recommended Products
       </h2>

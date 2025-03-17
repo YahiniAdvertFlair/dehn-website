@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 
-export default function DelveDeeperButton({ id, onScrollUp }) {
+export default function DelveDeeperButton({ id, onScrollUp,handleScrollToSection }) {
   const router = useRouter();
 
   useEffect(() => {
@@ -20,7 +20,7 @@ export default function DelveDeeperButton({ id, onScrollUp }) {
 
   return (
     <button 
-      onClick={handleNavigation}
+      onClick={handleScrollToSection}
       className="p-3 border border-dehn-red rounded-full text-dehn-red hover:bg-dehn-red hover:text-white transition cursor-pointer hover:bg-gray-200 relative group"
     >
       <img src="/assets/delve-deeper.png" alt="" className="w-5 h-5" />

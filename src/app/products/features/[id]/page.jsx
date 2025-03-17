@@ -28,9 +28,9 @@ export default function ProductFeatures() {
   
   const router = useRouter();
 
-  const applicationRef = useRef(null);
-  const benefitsRef = useRef(null);
-  const additionalRef = useRef(null);
+  // const applicationRef = useRef(null);
+  // const benefitsRef = useRef(null);
+  // const additionalRef = useRef(null);
 
   useEffect(() => {
     if (!id) return;
@@ -78,7 +78,7 @@ export default function ProductFeatures() {
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center relative">
-      <header className="fixed top-0 left-0 w-full z-50 flex items-center p-4 border-b border-gray-200 bg-white">
+      {/* <header className="fixed top-0 left-0 w-full z-50 flex items-center p-4 border-b border-gray-200 bg-white">
         <Link href="/" passHref>
           <Image
             src="/assets/dehn-logo.png"
@@ -88,8 +88,8 @@ export default function ProductFeatures() {
             className="cursor-pointer"
           />
         </Link>            
-      </header>
-      <nav className="text-sm text-gray-500 flex space-x-2 absolute left-20 top-25">
+      </header> */}
+      {/* <nav className="text-sm text-gray-500 flex space-x-2 absolute left-20 top-25">
     <Link href="/" className="hover:text-red-700 hover:underline">Home</Link>
     <span> &gt; </span>
     <Link href={`/products/${id}`} className="hover:text-red-700 hover:underline">{product.title}</Link>
@@ -97,9 +97,9 @@ export default function ProductFeatures() {
     <span> &gt; </span>
  <span className="text-dehn-red font-medium">Features</span>
     
-  </nav>
+  </nav> */}
 
-      <div className="text-center max-w-3xl mx-auto mt-30">
+      <div className="text-center max-w-3xl mx-auto ">
         <h1 className="text-4xl font-bold text-dehn-red">Interactive Features</h1>
         <p className="text-gray-600 mt-2 text-xs sm:text-sm md:text-md lg:text-md mb-2">
           Unlock real-time monitoring, intelligent diagnostics, and seamless system integration for enhanced surge protection and performance.
@@ -149,7 +149,7 @@ export default function ProductFeatures() {
         )}
       </div>
 
-      <div className="fixed bottom-10 left-20 flex flex-row items-center space-x-2 cursor-pointer">
+      {/* <div className="fixed bottom-10 left-20 flex flex-row items-center space-x-2 cursor-pointer">
         <button
           onClick={() => router.push(`/products/${id}`)}
           className="p-3 border border-dehn-red rounded-full text-dehn-red hover:bg-gray-200 hover:text-white cursor-pointer"
@@ -157,9 +157,9 @@ export default function ProductFeatures() {
           <img src="/assets/arrow.png" alt="Back" className="w-5 h-5" />
         </button>
         <span className="text-sm text-dehn-red font-bold">Back to Product</span>
-      </div>
+      </div> */}
 
-      <div className="fixed bottom-10 right-20 flex flex-row items-center space-x-2 group">
+      {/* <div className="fixed bottom-10 right-20 flex flex-row items-center space-x-2 group">
   <span className="text-sm text-dehn-red font-bold">Delve Deeper</span>
   
   <button
@@ -172,11 +172,11 @@ export default function ProductFeatures() {
       Explore More
     </span>
   </button>
-</div>
+</div> */}
 
 
 
-      <div ref={applicationRef} >
+      {/* <div ref={applicationRef} >
         <ApplicationPage />
       </div>
       <div ref={benefitsRef}>
@@ -186,7 +186,7 @@ export default function ProductFeatures() {
         <AdditionalPage />
       </div>
 
-      <RecommendedProducts />
+      <RecommendedProducts /> */}
     </div>
   );
 }

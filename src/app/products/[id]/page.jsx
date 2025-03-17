@@ -7,6 +7,11 @@ import ProductModelViewer from "@/components/ProductModelViewer";
 import { QRCodeCanvas } from "qrcode.react";
 import DelveDeeperButton from "@/components/DelveDeeperButton";
 import Link from "next/link";
+import ProductFeatures from "../features/[id]/page";
+import ApplicationPage from "../applications/page";
+import BenefitsPage from "../benefits/page";
+import AdditionalPage from "../additional-info/page";
+import RecommendedProducts from "../recommended/page";
 
 export default function ProductDetails() {
   const { id: paramId } = useParams();
@@ -18,6 +23,13 @@ export default function ProductDetails() {
   const [activeMode, setActiveMode] = useState("360");
   const [showArModal, setShowArModal] = useState(false);
   const modelRef = useRef(null);
+  const [scrollStep, setScrollStep] = useState(0); 
+
+
+  const featuresRef=useRef(null);
+   const applicationRef = useRef(null);
+    const benefitsRef = useRef(null);
+    const additionalRef = useRef(null);
 
   useEffect(() => {
     const fetchedProduct = getProductById(activeVariant);
@@ -36,21 +48,70 @@ export default function ProductDetails() {
     }
   };
 
+  useEffect(() => {
+    const handleFullscreenChange = () => {
+      if (!document.fullscreenElement) {
+        setIsFullScreen(false);
+        setActiveMode("360");
+      }
+    };
+  
+    document.addEventListener("fullscreenchange", handleFullscreenChange);
+  
+    return () => {
+      document.removeEventListener("fullscreenchange", handleFullscreenChange);
+    };
+  }, []);
+  
+  const FullScreen = () => {
+    if (!isFullScreen && modelRef.current) {
+      modelRef.current.requestFullscreen?.();
+    } else {
+      document.exitFullscreen?.();
+    }
+  };
+  const handleScrollToSection = () => {
+    const headerHeight = 60; 
+  
+    let targetRef;
+    if (scrollStep === 0) {
+      targetRef = featuresRef;
+    } else if (scrollStep === 1) {
+      targetRef = applicationRef;
+    } else if (scrollStep === 2) {
+      targetRef = benefitsRef;
+    }else if(scrollStep ===3){
+      targetRef = additionalRef;
+    }
+  
+    if (targetRef?.current) {
+      const targetPosition = targetRef.current.getBoundingClientRect().top + window.scrollY;
+      window.scrollTo({
+        top: targetPosition - headerHeight, 
+        behavior: "smooth"
+      });
+    }
+  
+    setScrollStep((prevStep) => (prevStep + 1) % 4);
+  };
+  
+
   if (!product) return <p className="text-center">Loading...</p>;
 
   return (
-    <div className={`min-h-screen flex flex-col items-center justify-center  md:px-10 ${isFullScreen ? "fixed inset-0 bg-white z-50" : ""}`}>
+    <div className={`min-h-screen flex flex-col items-center justify-center mt-30 md:px-10 ${isFullScreen ? "fixed inset-0 bg-white z-50" : ""}`}>
      
-      <header className="absolute top-0 left-0 w-full flex items-center justify-start border-b p-4 md:p-4 border-gray-500/10">
-      <Link href="/" passHref>
-    <Image
-      src="/assets/dehn-logo.png"
-      alt="DEHN Logo"
-      width={140}
-      height={40}
-      className="cursor-pointer"
-    />
-  </Link>      </header>
+     <header className="fixed top-0 left-0 w-full z-50 flex items-center p-4 border-b border-gray-200 bg-white">
+        <Link href="/" passHref>
+          <Image
+            src="/assets/dehn-logo.png"
+            alt="DEHN Logo"
+            width={140}
+            height={40}
+            className="cursor-pointer"
+          />
+        </Link>            
+      </header>
 
   <nav className="text-sm text-gray-500 flex space-x-2 absolute left-20 top-25">
     <Link href="/" className="hover:text-dehn-red hover:underline">Home </Link>
@@ -164,7 +225,7 @@ export default function ProductDetails() {
         360° DEGREE ROTATION ENABLED
       </div>
 
-      <div className="fixed bottom-10 left-20 flex flex-row items-center space-x-2 cursor-pointer">
+      <div className="fixed bottom-10 left-20 flex flex-row items-center space-x-2 cursor-pointer z-[-1]">
         <button
           onClick={() => router.push(`/`)}
           className="p-3 border border-dehn-red rounded-full text-dehn-red hover:bg-gray-200 hover:text-white cursor-pointer"
@@ -174,13 +235,28 @@ export default function ProductDetails() {
         <span className="text-sm text-dehn-red font-bold hidden md:block">Back to Home</span>
       </div>
 
-      <div className="fixed bottom-10 right-20 flex flex-row items-center space-x-2 group">
+      <div className="fixed bottom-10 right-20 flex flex-row items-center space-x-2 group  ">
         <span className="text-sm text-dehn-red font-bold hidden md:block">Delve Deeper</span>
-        <DelveDeeperButton id={activeVariant} />
+        <DelveDeeperButton id={activeVariant} handleScrollToSection={handleScrollToSection}/>
         <span className="absolute -top-8 left-1/2 -translate-x-1/9 bg-dehn-textgrey text-white text-xs px-2 py-1 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
       Explore More
     </span>
       </div>
+      <section ref={featuresRef}>
+      <ProductFeatures/>
+      </section>
+        <section ref={applicationRef} >
+              <ApplicationPage />
+            </section>
+            <section ref={benefitsRef}>
+              <BenefitsPage />
+            </section>
+            <section ref={additionalRef}>
+              <AdditionalPage />
+            </section>
+      <section>
+            <RecommendedProducts />
+      </section>
     </div>
   );
 }
